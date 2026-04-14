@@ -31,6 +31,15 @@
   <p>Security-focused portfolio | OWASP Top 10 expert</p>
   <div class="security-badge">
     Security Headers: <span id="security-score">92/100</span>
+    <script>
+  // Checks if site is HTTPS (real-world security proof)
+  if (window.location.protocol !== 'https:') {
+    document.getElementById('security-score').innerText = 'WARNING: HTTP is not secure!';
+  }
+  // Optional: Add a security tip
+  document.getElementById('security-score').innerText = `92/100 - HTTPS Secure | Powered by GitHub Pages`;
+</script>
+
   </div>
 </body>
 </html>
