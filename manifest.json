@@ -1,0 +1,21 @@
+{
+  "name": "LayerZeppelin",
+  "short_name": "LayerZeppelin",
+  "description": "Cybersecurity Portfolio - Penetration Testing, Web Security, Ethical Hacking",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00ff00",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
