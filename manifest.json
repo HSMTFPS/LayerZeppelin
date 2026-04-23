@@ -1,21 +1,26 @@
 {
-  "name": "LayerZeppelin",
+  "name": "LayerZeppelin - Cybersecurity Portfolio",
   "short_name": "LayerZeppelin",
-  "description": "Cybersecurity Portfolio - Penetration Testing, Web Security, Ethical Hacking",
+  "description": "Portefólio de Cibersegurança - Penetration Testing, Web Security, Ethical Hacking",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#00ff00",
+  "orientation": "portrait-primary",
+  "scope": "/",
   "icons": [
     {
       "src": "favicon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
-  ]
+  ],
+  "categories": ["portfolio", "security", "technology"],
+  "lang": "pt-PT"
 }

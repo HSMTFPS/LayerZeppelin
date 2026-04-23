@@ -4,376 +4,374 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="LayerZeppelin - Cybersecurity Portfolio. Penetration testing, security research, and ethical hacking.">
-  <meta name="keywords" content="cybersecurity, penetration testing, OWASP, security researcher, ethical hacking">
+  <meta name="description" content="LayerZeppelin - Portefólio de Cibersegurança. Penetration testing, segurança web, ethical hacking e investigação de segurança.">
+  <meta name="keywords" content="cybersecurity, penetration testing, OWASP, security researcher, ethical hacking, cibersegurança, portefólio">
   <meta name="author" content="LayerZeppelin">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#00ff00">
   <meta property="og:title" content="LayerZeppelin | Cybersecurity Portfolio">
-  <meta property="og:description" content="Security-focused portfolio | Penetration Testing | Ethical Hacking">
+  <meta property="og:description" content="Portefólio de segurança focado em Penetration Testing | Ethical Hacking | CTF">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://layerzeppelin.pt">
+  <meta property="og:image" content="https://layerzeppelin.pt/images/logo.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LayerZeppelin | Cybersecurity Portfolio">
+  <meta name="twitter:description" content="Portefólio de segurança focado em Penetration Testing | Ethical Hacking | CTF">
+  <meta name="twitter:image" content="https://layerzeppelin.pt/images/logo.png">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://layerzeppelin.pt/">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#00ff00">
   <title>LayerZeppelin | Cybersecurity Portfolio</title>
-  
-  <!-- HTTPS Redirect -->
   <script>
     if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
       location.replace('https:' + location.href.substring(5));
     }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hermínio Teles",
+    "alternateName": "LayerZeppelin",
+    "url": "https://layerzeppelin.pt",
+    "jobTitle": "Cybersecurity Professional",
+    "knowsAbout": ["Penetration Testing", "Web Security", "Ethical Hacking", "CTF", "Security Research"],
+    "sameAs": [
+      "https://github.com/HSMTFPS",
+      "https://www.linkedin.com/in/herm%C3%ADnio-teles-6826b8358/"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <canvas id="matrix-bg"></canvas>
-  <div class="scanline"></div>
+  <canvas id="matrix-bg" aria-hidden="true"></canvas>
+  <div class="scanline" aria-hidden="true"></div>
   
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
     <div class="nav-brand">
-      <img src="images/logo.png" alt="LayerZeppelin Logo" class="nav-logo">
-      <span>&lt;LayerZeppelin/&gt;</span>
+      <a href="#home" aria-label="LayerZeppelin - Início">
+        <span>&lt;LayerZeppelin/&gt;</span>
+      </a>
     </div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#certifications">Certs</a></li>
-      <li><a href="#ctf">CTF</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-links-menu">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
+    <ul class="nav-links" id="nav-links-menu" role="menubar">
+      <li role="none"><a href="#about" role="menuitem">Sobre</a></li>
+      <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+      <li role="none"><a href="#certifications" role="menuitem">Certs</a></li>
+      <li role="none"><a href="#ctf" role="menuitem">CTF</a></li>
+      <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+      <li role="none"><a href="#contact" role="menuitem">Contacto</a></li>
     </ul>
   </nav>
 
   <header class="hero" id="home">
     <div class="hero-content">
       <div class="terminal-header">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
+        <span class="dot red" aria-hidden="true"></span>
+        <span class="dot yellow" aria-hidden="true"></span>
+        <span class="dot green" aria-hidden="true"></span>
         <span class="terminal-title">root@layerzeppelin:~</span>
       </div>
       <div class="terminal-body">
-        <p class="typed-text"><span class="prompt">$</span> whoami</p>
+        <p class="typed-text"><span class="prompt" aria-hidden="true">$</span> whoami</p>
         <h1 class="glitch" data-text="LayerZeppelin">LayerZeppelin</h1>
         <p class="subtitle">Aspiring Cybersecurity Professional | Learning & Building</p>
-        <p class="typed-text"><span class="prompt">$</span> cat specializations.txt</p>
+        <p class="typed-text"><span class="prompt" aria-hidden="true">$</span> cat specializations.txt</p>
         <p class="output">CTF Competitions | Web Security | Password Cracking | Certifications Path</p>
-        <p class="typed-text"><span class="prompt">$</span> echo "Our democracy has been hacked." # fsociety</p>
+        <p class="typed-text" aria-hidden="true"><span class="prompt">$</span> echo "Our democracy has been hacked." # fsociety</p>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section" id="about">
-      <h2 class="section-title"><span class="hash">#</span> About</h2>
+    <section class="section" id="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title"><span class="hash" aria-hidden="true">#</span> Sobre</h2>
       <div class="about-content">
         <div class="profile-image">
-          <img src="images/profile.jpg" alt="LayerZeppelin Profile">
+          <img src="images/profile.jpg" alt="Foto de perfil do LayerZeppelin" loading="lazy" width="250" height="250">
         </div>
         <div class="about-text">
           <p>Driven by an unwavering passion for cybersecurity. I'm actively developing my skills through hands-on challenges, certifications, and continuous learning — preparing to make a real impact in the field.</p>
           <p class="highlight">Currently seeking internship opportunities starting in a few months.</p>
           <ul class="about-list">
-            <li><span class="bullet">&gt;</span> Building expertise in Web Application Security</li>
-            <li><span class="bullet">&gt;</span> Password Cracking Techniques</li>
-            <li><span class="bullet">&gt;</span> Hands-on penetration testing practice</li>
-            <li><span class="bullet">&gt;</span> CTF competitions & security certifications</li>
+            <li><span class="bullet" aria-hidden="true">&gt;</span> Building expertise in Web Application Security</li>
+            <li><span class="bullet" aria-hidden="true">&gt;</span> Password Cracking Techniques</li>
+            <li><span class="bullet" aria-hidden="true">&gt;</span> Hands-on penetration testing practice</li>
+            <li><span class="bullet" aria-hidden="true">&gt;</span> CTF competitions & security certifications</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <h2 class="section-title"><span class="hash">#</span> Skills</h2>
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title"><span class="hash" aria-hidden="true">#</span> Skills</h2>
+      
       <h3 class="subsection-title">Security & Testing</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">🔓</div>
+      <div class="skills-grid" role="list">
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔓</div>
           <h3>Penetration Testing</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Penetration Testing - 35%"><div class="skill-progress" style="--progress: 35%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🌐</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🌐</div>
           <h3>Web Security</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 15%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Web Security - 40%"><div class="skill-progress" style="--progress: 40%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔍</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔍</div>
           <h3>OSINT / Recon</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 12%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="OSINT - 30%"><div class="skill-progress" style="--progress: 30%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">📡</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">📡</div>
           <h3>Network Security</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Network Security - 35%"><div class="skill-progress" style="--progress: 35%"></div></div>
         </div>
       </div>
+      
       <h3 class="subsection-title">Operating Systems</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">🐉</div>
+      <div class="skills-grid" role="list">
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🐉</div>
           <h3>Kali Linux</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 18%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Linux - 55%"><div class="skill-progress" style="--progress: 55%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">📱</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">📱</div>
           <h3>Kali Nethunter</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 8%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Nethunter - 25%"><div class="skill-progress" style="--progress: 25%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🦜</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🦜</div>
           <h3>Parrot OS</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="Parrot OS - 30%"><div class="skill-progress" style="--progress: 30%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🐧</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🐧</div>
           <h3>Ubuntu / Server</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 15%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Ubuntu Server - 50%"><div class="skill-progress" style="--progress: 50%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🪟</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🪟</div>
           <h3>Windows Server</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Windows Server - 35%"><div class="skill-progress" style="--progress: 35%"></div></div>
         </div>
       </div>
+      
       <h3 class="subsection-title">Development & Tools</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">🐍</div>
+      <div class="skills-grid" role="list">
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🐍</div>
           <h3>Python / Scripting</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 12%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="Python - 45%"><div class="skill-progress" style="--progress: 45%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">☁️</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">☁️</div>
           <h3>Proxmox VE</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Proxmox VE - 40%"><div class="skill-progress" style="--progress: 40%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">⚙️</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">⚙️</div>
           <h3>VMware</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="VMware - 35%"><div class="skill-progress" style="--progress: 35%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🐳</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🐳</div>
           <h3>Docker</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 8%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="Docker - 30%"><div class="skill-progress" style="--progress: 30%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔧</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔧</div>
           <h3>WSL</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 18%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="WSL - 55%"><div class="skill-progress" style="--progress: 55%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔒</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔒</div>
           <h3>WireGuard</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="WireGuard - 40%"><div class="skill-progress" style="--progress: 40%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔐</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔐</div>
           <h3>OpenVPN</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="OpenVPN - 35%"><div class="skill-progress" style="--progress: 35%"></div></div>
         </div>
       </div>
+      
       <h3 class="subsection-title">Security Tools</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">🔎</div>
+      <div class="skills-grid" role="list">
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔎</div>
           <h3>Shodan</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Shodan - 40%"><div class="skill-progress" style="--progress: 40%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🕷️</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🕷️</div>
           <h3>Burp Suite CE</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 12%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="Burp Suite - 45%"><div class="skill-progress" style="--progress: 45%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">📡</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">📡</div>
           <h3>Nmap</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 15%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Nmap - 50%"><div class="skill-progress" style="--progress: 50%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔓</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔓</div>
           <h3>Metasploit</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 8%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="Metasploit - 30%"><div class="skill-progress" style="--progress: 30%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🗡️</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🗡️</div>
           <h3>Wireshark</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Wireshark - 40%"><div class="skill-progress" style="--progress: 40%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔍</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🔍</div>
           <h3>John the Ripper</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 8%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" aria-label="John the Ripper - 33%"><div class="skill-progress" style="--progress: 33%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🛡️</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🛡️</div>
           <h3>Hashcat</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 8%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="Hashcat - 30%"><div class="skill-progress" style="--progress: 30%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🌐</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">🌐</div>
           <h3>Gobuster / Dirb</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Gobuster - 40%"><div class="skill-progress" style="--progress: 40%"></div></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">📊</div>
+        <div class="skill-card" role="listitem">
+          <div class="skill-icon" aria-hidden="true">📊</div>
           <h3>Nikto</h3>
-          <div class="skill-bar"><div class="skill-progress" style="--progress: 10%"></div></div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Nikto - 35%"><div class="skill-progress" style="--progress: 35%"></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="certifications">
-      <h2 class="section-title"><span class="hash">#</span> Certifications</h2>
-      <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-icon">🔐</div>
+    <section class="section" id="certifications" aria-labelledby="certs-title">
+      <h2 class="section-title" id="certs-title"><span class="hash" aria-hidden="true">#</span> Certifications</h2>
+      <div class="cert-grid" role="list">
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">🔐</div>
           <h3>Cisco Cybersecurity</h3>
           <p class="cert-issuer">Cisco Networking Academy</p>
-          <p class="cert-email"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['hsmtfps','gmail.com'].join('@')">hsmtfps [at] gmail.com</a></p>
-          <span class="cert-status">pending</span>
+          <span class="cert-status">In Progress</span>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">🛡️</div>
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">🛡️</div>
           <h3>CNCS</h3>
           <p class="cert-issuer">Centro Nacional de Cibersegurança</p>
-          <p class="cert-email"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['hsmtfps','gmail.com'].join('@')">hsmtfps [at] gmail.com</a></p>
-          <span class="cert-status">pending</span>
+          <span class="cert-status">In Progress</span>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">🎯</div>
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">🎯</div>
           <h3>TryHackMe</h3>
           <p class="cert-issuer">Various Learning Paths</p>
-          <p class="cert-email"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['hsmtfps','gmail.com'].join('@')">hsmtfps [at] gmail.com</a></p>
-          <span class="cert-status">pending</span>
+          <span class="cert-status">In Progress</span>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">📦</div>
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">📦</div>
           <h3>HackTheBox Academy</h3>
           <p class="cert-issuer">HTB Certifications</p>
-          <p class="cert-email"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['hsmtfps','gmail.com'].join('@')">hsmtfps [at] gmail.com</a></p>
-          <span class="cert-status">pending</span>
+          <span class="cert-status">In Progress</span>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">🕷️</div>
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">🕷️</div>
           <h3>PortSwigger</h3>
           <p class="cert-issuer">Web Security Academy</p>
-          <p class="cert-email"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['hsmtfps','gmail.com'].join('@')">hsmtfps [at] gmail.com</a></p>
-          <span class="cert-status">pending</span>
+          <span class="cert-status">In Progress</span>
         </div>
-        <div class="cert-card">
-          <div class="cert-icon">🏆</div>
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">🏆</div>
           <h3>eLearnSecurity</h3>
           <p class="cert-issuer">INE Security</p>
-          <p class="cert-email"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['hsmtfps','gmail.com'].join('@')">hsmtfps [at] gmail.com</a></p>
-          <span class="cert-status">pending</span>
+          <span class="cert-status">Planned</span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="ctf">
-      <h2 class="section-title"><span class="hash">#</span> CTF & Labs</h2>
-      <div class="ctf-grid">
-        <a href="https://tryhackme.com/p/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🎯</div>
+    <section class="section" id="ctf" aria-labelledby="ctf-title">
+      <h2 class="section-title" id="ctf-title"><span class="hash" aria-hidden="true">#</span> CTF & Labs</h2>
+      <div class="ctf-grid" role="list">
+        <a href="https://tryhackme.com/p/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil TryHackMe">
+          <div class="ctf-logo" aria-hidden="true">🎯</div>
           <h3>TryHackMe</h3>
           <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
+          <span class="ctf-badge">Ver Perfil</span>
         </a>
-        <a href="https://app.hackthebox.com/profile/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">📦</div>
+        <a href="https://app.hackthebox.com/profile/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil HackTheBox">
+          <div class="ctf-logo" aria-hidden="true">📦</div>
           <h3>HackTheBox</h3>
           <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
+          <span class="ctf-badge">Ver Perfil</span>
         </a>
-        <a href="https://labex.io/u/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🧪</div>
+        <a href="https://labex.io/u/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil LabEx">
+          <div class="ctf-logo" aria-hidden="true">🧪</div>
           <h3>LabEx.io</h3>
           <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
+          <span class="ctf-badge">Ver Perfil</span>
         </a>
-        <a href="https://opencode.com/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">💻</div>
-          <h3>OpenCode</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
-        </a>
-        <a href="https://openclaw.com/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🗡️</div>
-          <h3>OpenClaw</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
-        </a>
-        <a href="https://ctftime.org/user/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🏆</div>
-          <h3>CTFtime</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
-        </a>
-        <a href="https://pentesterlab.com/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🔬</div>
-          <h3>PentesterLab</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
-        </a>
-        <a href="https://portswigger.net/web-security/certification" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🌐</div>
-          <h3>PortSwigger Academy</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
-        </a>
-        <a href="https://picoctf.com/users/HSMTFPS" target="_blank" rel="noopener" class="ctf-card">
-          <div class="ctf-logo">🔐</div>
+        <a href="https://picoctf.com/users/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil PicoCTF">
+          <div class="ctf-logo" aria-hidden="true">🔐</div>
           <h3>PicoCTF</h3>
           <p>@HSMTFPS</p>
-          <span class="ctf-badge">View Profile</span>
+          <span class="ctf-badge">Ver Perfil</span>
         </a>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <h2 class="section-title"><span class="hash">#</span> Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title"><span class="hash" aria-hidden="true">#</span> Projects</h2>
+      <div class="projects-grid" role="list">
+        <article class="project-card" role="listitem">
           <div class="project-image">
-            <img src="images/project-final.png" alt="LayerZeppelin Project">
+            <img src="images/project-final.png" alt="Screenshot do projeto LayerZeppelin.pt" loading="lazy" width="600" height="400">
           </div>
           <div class="project-header">
-            <span class="project-icon">🌐</span>
+            <span class="project-icon" aria-hidden="true">🌐</span>
             <h3>LayerZeppelin.pt</h3>
           </div>
-          <p>Cybersecurity portfolio website with terminal aesthetics, Matrix background animation, and modern dark theme design.</p>
+          <p>Portefólio de cibersegurança com estética terminal, animação Matrix em background e design dark theme moderno.</p>
           <div class="project-tags">
             <span class="tag">HTML/CSS</span>
             <span class="tag">JavaScript</span>
             <span class="tag">Cybersecurity</span>
           </div>
-          <a href="https://layerzeppelin.pt" class="project-link" target="_blank" rel="noopener">Visit Site →</a>
-          <a href="https://github.com/HSMTFPS/LayerZeppelin" class="project-link" target="_blank" rel="noopener">View Code →</a>
-        </div>
+          <div class="project-links">
+            <a href="https://layerzeppelin.pt" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="Visitar site LayerZeppelin.pt">Visitar Site →</a>
+            <a href="https://github.com/HSMTFPS/LayerZeppelin" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código fonte no GitHub">Ver Código →</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <h2 class="section-title"><span class="hash">#</span> Contact</h2>
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title"><span class="hash" aria-hidden="true">#</span> Contacto</h2>
       <div class="contact-content">
         <div class="terminal-box">
           <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
+            <span class="dot red" aria-hidden="true"></span>
+            <span class="dot yellow" aria-hidden="true"></span>
+            <span class="dot green" aria-hidden="true"></span>
             <span class="terminal-title">contact@layerzeppelin:~</span>
           </div>
           <div class="terminal-body contact-terminal">
-            <p><span class="prompt">$</span> echo $EMAIL</p>
-            <p class="output"><a href="#" onclick="event.preventDefault();location.href='mailto:'+['contact','layerzeppelin.pt'].join('@')">contact@layerzeppelin.pt</a></p>
-            <p><span class="prompt">$</span> echo $GITHUB</p>
-            <p class="output"><a href="https://github.com/HSMTFPS" target="_blank" rel="noopener">github.com/HSMTFPS</a></p>
-            <p><span class="prompt">$</span> echo $LINKEDIN</p>
-            <p class="output"><a href="https://www.linkedin.com/in/herm%C3%ADnio-teles-6826b8358/" target="_blank" rel="noopener">linkedin.com/in/hermínio-teles</a></p>
-            <p><span class="prompt">$</span> _</p>
+            <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL</p>
+            <p class="output"><a href="mailto:contact@layerzeppelin.pt" aria-label="Enviar email para contact@layerzeppelin.pt">contact@layerzeppelin.pt</a></p>
+            <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL_ALT</p>
+            <p class="output"><a href="mailto:hsmtfps@gmail.com" aria-label="Enviar email para hsmtfps@gmail.com">hsmtfps@gmail.com</a></p>
+            <p><span class="prompt" aria-hidden="true">$</span> echo $GITHUB</p>
+            <p class="output"><a href="https://github.com/HSMTFPS" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil GitHub">github.com/HSMTFPS</a></p>
+            <p><span class="prompt" aria-hidden="true">$</span> echo $LINKEDIN</p>
+            <p class="output"><a href="https://www.linkedin.com/in/herm%C3%ADnio-teles-6826b8358/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil LinkedIn">linkedin.com/in/hermínio-teles</a></p>
+            <p aria-hidden="true"><span class="prompt">$</span> _</p>
           </div>
         </div>
       </div>
@@ -382,96 +380,100 @@
 
   <footer class="footer">
     <div class="footer-content">
-      <p>&copy; 2026 LayerZeppelin | Hermínio Teles | Security Score: <span class="score">92/100</span></p>
+      <p>&copy; 2026 LayerZeppelin | Hermínio Teles | Security Score: <span class="score" tabindex="0" role="button" aria-label="Security Score: 92 out of 100">92/100</span></p>
       <p class="footer-note">// Built with security in mind</p>
-<p class="easter-egg-hint">[Press ++ for hardware secrets]</p>
-      <p class="secret-code-hint" onclick="openSecretInput()">[Access Terminal? Enter Code: #__]</p>
-      <p class="easter-egg-hint" style="margin-top: 5px; opacity: 0.2; cursor: pointer;" onclick="openRockyouChallenge()">[💀 RockYou Challenge - Crack the Hash]</p>
-      </div>
-      <div class="footer-legal">
-        <a href="privacy.html">Privacidade</a>
-        <span>|</span>
-        <a href="terms.html">Termos</a>
-      </div>
-      <p class="footer-disclaimer">Este site é um portfólio pessoal com fins de demonstração de competências em cibersegurança. Não presta serviços profissionais (de momento). Em construção constante 🚧</p>
-      <p class="easter-egg-hint" style="margin-top: 10px; opacity: 0.3; cursor: pointer;" onclick="openPasswordChallenge()">[🔐 Password Challenge]</p>
+      <p class="easter-egg-hint" data-action="show-easter" tabindex="0" role="button" aria-label="Pressione para ver hardware arsenal">[Press ++ for hardware secrets]</p>
+      <p class="secret-code-hint" data-action="open-secret" tabindex="0" role="button" aria-label="Pressione para introduzir código secreto">[Access Terminal? Enter Code: #__]</p>
+      <p class="easter-egg-hint" style="margin-top: 5px; opacity: 0.2;" data-action="open-rockyou" tabindex="0" role="button" aria-label="Pressione para abrir desafio RockYou">[💀 RockYou Challenge - Crack the Hash]</p>
     </div>
-    
-    <!-- Password Challenge Panel -->
-    <div id="password-challenge-panel" class="secret-code-panel">
-      <div class="secret-code-content">
-        <h3>🔐 PASSWORD CHALLENGE</h3>
-        <p class="challenge-intro">A special challenge for those who dare...</p>
-        <div class="hash-box">
-          <p class="hash-label">Crack this SHA-256 hash:</p>
-          <code class="hash-value">071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009</code>
-          <p class="hash-hint">💡 Hint: No password is stronger than... [football club founded 1906]</p>
-        </div>
-        <input type="text" id="password-input" placeholder="Enter password..." autocomplete="off">
-        <button onclick="submitPasswordChallenge()">CRACK IT</button>
-        <p class="error-msg" id="password-error"></p>
-        <p class="success-msg" id="password-success"></p>
-      </div>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacidade</a>
+      <span aria-hidden="true">|</span>
+      <a href="terms.html">Termos</a>
+      <span aria-hidden="true">|</span>
+      <a href="cookies.html">Cookies</a>
+      <span aria-hidden="true">|</span>
+      <button class="cookie-settings-btn" data-action="cookie-prefs" style="background:none;border:none;color:var(--accent);cursor:pointer;font-family:inherit;font-size:0.85rem;">Preferências de Cookies</button>
     </div>
-    
-    <!-- Room 27 Panel -->
-    <div id="secret-code-panel" class="secret-code-panel">
-      <div class="secret-code-content">
-        <h3>ACCESS TERMINAL</h3>
-        <p>Enter authorization code:</p>
-        <input type="text" id="secret-code-input" placeholder="#__" maxlength="4" autocomplete="off" inputmode="numeric">
-        <button onclick="submitSecretCode()">AUTHENTICATE</button>
-        <p class="error-msg" id="secret-error"></p>
+    <p class="footer-disclaimer">Este site é um portefólio pessoal com fins de demonstração de competências em cibersegurança. Não presta serviços profissionais (de momento). Em construção constante 🚧</p>
+  </footer>
+  
+  <div id="password-challenge-panel" class="secret-code-panel" role="dialog" aria-labelledby="password-challenge-title" aria-modal="true">
+    <div class="secret-code-content">
+      <h3 id="password-challenge-title">🔐 PASSWORD CHALLENGE</h3>
+      <p class="challenge-intro">A special challenge for those who dare...</p>
+      <div class="hash-box">
+        <p class="hash-label">Crack this SHA-256 hash:</p>
+        <code class="hash-value">071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009</code>
+        <p class="hash-hint">💡 Hint: No password is stronger than... [football club founded 1906]</p>
       </div>
+      <label for="password-input" class="visually-hidden">Password</label>
+      <input type="text" id="password-input" placeholder="Enter password..." autocomplete="off" aria-describedby="password-error">
+      <button data-action="submit-password">CRACK IT</button>
+      <p class="error-msg" id="password-error" role="alert" aria-live="polite"></p>
+      <p class="success-msg" id="password-success" role="alert" aria-live="polite"></p>
     </div>
-    
-    <!-- RockYou Challenge Panel -->
-    <div id="rockyou-panel" class="secret-code-panel">
-      <div class="secret-code-content" style="max-width: 600px;">
-        <h3>💀 ROCKYOU CHALLENGE</h3>
-        <p class="challenge-intro">From the famous rockyou.txt leak...</p>
-        <div class="hash-box">
-          <p class="hash-label">Crack this SHA-256 hash:</p>
-          <code class="hash-value">ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</code>
-          <p class="hash-hint">💡 Hint: The most common password in rockyou.txt... followed by numbers!</p>
-          <p class="hash-hint" style="font-size: 0.7rem; opacity: 0.7;">Format: [word][numbers]</p>
-        </div>
-        <input type="text" id="rockyou-input" placeholder="Enter password..." autocomplete="off">
-        <button onclick="submitRockyouChallenge()">CRACK IT</button>
-        <p class="error-msg" id="rockyou-error"></p>
-        <p class="success-msg" id="rockyou-success"></p>
+  </div>
+  
+  <div id="secret-code-panel" class="secret-code-panel" role="dialog" aria-labelledby="secret-code-title" aria-modal="true">
+    <div class="secret-code-content">
+      <h3 id="secret-code-title">ACCESS TERMINAL</h3>
+      <p>Enter authorization code:</p>
+      <label for="secret-code-input" class="visually-hidden">Código de autorização</label>
+      <input type="text" id="secret-code-input" placeholder="#__" maxlength="4" autocomplete="off" inputmode="numeric" aria-describedby="secret-error">
+      <button data-action="submit-secret">AUTHENTICATE</button>
+      <p class="error-msg" id="secret-error" role="alert" aria-live="polite"></p>
+    </div>
+  </div>
+  
+  <div id="rockyou-panel" class="secret-code-panel" role="dialog" aria-labelledby="rockyou-title" aria-modal="true">
+    <div class="secret-code-content" style="max-width: 600px;">
+      <h3 id="rockyou-title">💀 ROCKYOU CHALLENGE</h3>
+      <p class="challenge-intro">From the famous rockyou.txt leak...</p>
+      <div class="hash-box">
+        <p class="hash-label">Crack this SHA-256 hash:</p>
+        <code class="hash-value">ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</code>
+        <p class="hash-hint">💡 Hint: The most common password in rockyou.txt... followed by numbers!</p>
+        <p class="hash-hint" style="font-size: 0.7rem; opacity: 0.7;">Format: [word][numbers]</p>
+      </div>
+      <label for="rockyou-input" class="visually-hidden">Password</label>
+      <input type="text" id="rockyou-input" placeholder="Enter password..." autocomplete="off" aria-describedby="rockyou-error">
+      <button data-action="submit-rockyou">CRACK IT</button>
+      <p class="error-msg" id="rockyou-error" role="alert" aria-live="polite"></p>
+      <p class="success-msg" id="rockyou-success" role="alert" aria-live="polite"></p>
+      
+      <div class="rockyou-info" style="margin-top: 1.5rem; border-top: 1px solid #333; padding-top: 1rem;">
+        <h4 style="color: #ff5f56; font-size: 0.9rem; margin-bottom: 0.5rem;">📚 About rockyou.txt</h4>
+        <p style="color: #888; font-size: 0.75rem; line-height: 1.5; text-align: left;">
+          • <strong style="color:#fff">2009:</strong> RockYou breach exposed <strong style="color:#0f0">14.3 million</strong> passwords<br>
+          • <strong style="color:#fff">Time to crack:</strong> This hash would take <strong style="color:#f00">&lt; 1 second</strong> with GPU brute force<br>
+          • <strong style="color:#fff">Top passwords:</strong> password123, 123456, qwerty, iloveyou<br>
+          • <strong style="color:#fff">Lesson:</strong> Never use dictionary words or common patterns!
+        </p>
         
-        <div class="rockyou-info" style="margin-top: 1.5rem; border-top: 1px solid #333; padding-top: 1rem;">
-          <h4 style="color: #ff5f56; font-size: 0.9rem; margin-bottom: 0.5rem;">📚 About rockyou.txt</h4>
-          <p style="color: #888; font-size: 0.75rem; line-height: 1.5; text-align: left;">
-            • <strong style="color:#fff">2009:</strong> RockYou breach exposed <strong style="color:#0f0">14.3 million</strong> passwords<br>
-            • <strong style="color:#fff">Time to crack:</strong> This hash would take <strong style="color:#f00">&lt; 1 second</strong> with GPU brute force<br>
-            • <strong style="color:#fff">Top passwords:</strong> password123, 123456, qwerty, iloveyou<br>
-            • <strong style="color:#fff">Lesson:</strong> Never use dictionary words or common patterns!
-          </p>
-          
-          <h4 style="color: #27c93f; font-size: 0.9rem; margin: 1rem 0 0.5rem;">🔐 How to Create a STRONG Password</h4>
-          <ul style="color: #888; font-size: 0.75rem; line-height: 1.6; text-align: left; padding-left: 1.5rem;">
-            <li>✓ Minimum <strong style="color:#fff">16+ characters</strong></li>
-            <li>✓ Mix: <strong style="color:#fff">UPPER + lower + numbers + symbols</strong></li>
-            <li>✓ Use <strong style="color:#fff">passphrases</strong>: "Correct-Horse-Battery-Staple"</li>
-            <li>✓ Use a <strong style="color:#fff">password manager</strong> (Bitwarden, 1Password)</li>
-            <li>✓ Enable <strong style="color:#fff">2FA/MFA</strong> everywhere possible</li>
-            <li>✗ Avoid: dictionary words, birthdates, names, sequences</li>
-            <li>✗ Never reuse passwords across sites!</li>
-          </ul>
-        </div>
+        <h4 style="color: #27c93f; font-size: 0.9rem; margin: 1rem 0 0.5rem;">🔐 How to Create a STRONG Password</h4>
+        <ul style="color: #888; font-size: 0.75rem; line-height: 1.6; text-align: left; padding-left: 1.5rem;">
+          <li>✓ Minimum <strong style="color:#fff">16+ characters</strong></li>
+          <li>✓ Mix: <strong style="color:#fff">UPPER + lower + numbers + symbols</strong></li>
+          <li>✓ Use <strong style="color:#fff">passphrases</strong>: "Correct-Horse-Battery-Staple"</li>
+          <li>✓ Use a <strong style="color:#fff">password manager</strong> (Bitwarden, 1Password)</li>
+          <li>✓ Enable <strong style="color:#fff">2FA/MFA</strong> everywhere possible</li>
+          <li>✗ Avoid: dictionary words, birthdates, names, sequences</li>
+          <li>✗ Never reuse passwords across sites!</li>
+        </ul>
       </div>
     </div>
-    <div id="room27-panel" class="room27-panel">
-      <div class="room27-content">
-        <button class="close-easter" onclick="closeRoom27()">&times;</button>
-        <div class="room27-header">
-          <span class="room27-status">ROOM 27 - ACTIVE</span>
-          <h2>CTF Challenge Terminal</h2>
-        </div>
-        <div class="room27-terminal">
-          <div class="room27-ascii">
+  </div>
+  
+  <div id="room27-panel" class="room27-panel" role="dialog" aria-labelledby="room27-title" aria-modal="true">
+    <div class="room27-content">
+      <button class="close-easter" data-action="close-room27" aria-label="Fechar">&times;</button>
+      <div class="room27-header">
+        <span class="room27-status">ROOM 27 - ACTIVE</span>
+        <h2 id="room27-title">CTF Challenge Terminal</h2>
+      </div>
+      <div class="room27-terminal">
+        <div class="room27-ascii">
 <pre>
     ╔══════════════════════════════════════╗
     ║   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   ║
@@ -483,430 +485,69 @@
     ║                                      ║
     ║   SGVscCBtZSwgSSdtIHNlZWtpbmcg      ║
     ║   YSBmdXR1cmUgaW4gY3liZXItc2Vj       ║
-    ║   dXJpdHkuIENhbiB5b3Ugk2RlY29k       ║
-    ║   ZSB0aGlzPw==                       ║
+    ║   dXJpdHkuIENhbiB5b3UgZGVjb2Rl       ║
+    ║   dGhpcz8=                           ║
     ║                                      ║
     ║   [HINT] Base64 knows the truth     ║
     ║                                      ║
-    ║   [STATUS] Ready for next step...   ║
-    ║                                      ║
     ╚══════════════════════════════════════╝
 </pre>
+        </div>
+        <div class="room27-info">
+          <div class="challenge-card">
+            <h4>🖥️ Challenge #27: Decode the Future</h4>
+            <p>This room holds a secret message. Can you decode it?</p>
+            <p class="challenge-hint">Hint: The flag is encoded in Base64</p>
           </div>
-          <div class="room27-info">
-            <div class="challenge-card">
-              <h4>🖥️ Challenge #27: Decode the Future</h4>
-              <p>This room holds a secret message. Can you decode it?</p>
-              <p class="challenge-hint">Hint: The flag is encoded in Base64</p>
-            </div>
-            <div class="challenge-card">
-              <h4>🎯 Your Mission</h4>
-              <p>1. Decode the flag using Base64</p>
-              <p>2. Find the hidden meaning</p>
-              <p>3. Remember: Seeking intern = Future cyber-expert</p>
-            </div>
-            <div class="challenge-card success">
-              <h4>🏆 Achievement Unlocked</h4>
-              <p>You found Room 27!</p>
-              <p>That makes you curious - a perfect trait for cybersecurity.</p>
-            </div>
+          <div class="challenge-card success">
+            <h4>🏆 Achievement Unlocked</h4>
+            <p>You found Room 27!</p>
+            <p>That makes you curious - a perfect trait for cybersecurity.</p>
           </div>
         </div>
       </div>
     </div>
-    <div id="easter-egg-panel" class="easter-egg-panel">
-      <div class="easter-egg-content">
-        <button class="close-easter" onclick="closeEasterEgg()">&times;</button>
-        <h2>Hardware Arsenal</h2>
-        <div class="easter-grid">
-          <div class="easter-item">
-            <div class="easter-icon">🐬</div>
-            <h3>Flipper Zero</h3>
-            <p>Multi-tool for geeks. Sub-GHz, RFID, NFC, IR, GPIO hacking in your pocket.</p>
-          </div>
-          <div class="easter-item">
-            <div class="easter-icon">📶</div>
-            <h3>ESP32 Marauder</h3>
-            <p>Wi-Fi reconnaissance and pentesting tool for deauth, beacon spam, packet monitoring.</p>
-          </div>
-          <div class="easter-item">
-            <div class="easter-icon">🐕</div>
-            <h3>ESP32 Hale Hound</h3>
-            <p>Bluetooth Low Energy security testing and device enumeration platform.</p>
-          </div>
-          <div class="easter-item">
-            <div class="easter-icon">👻</div>
-            <h3>ESP32 Ghost</h3>
-            <p>Stealthy wireless penetration testing device with custom firmware capabilities.</p>
-          </div>
-          <div class="easter-item">
-            <div class="easter-icon">🦇</div>
-            <h3>ESP32 Bruce</h3>
-            <p>Versatile ESP32-based tool for wireless security assessments and protocol analysis.</p>
-          </div>
-          <div class="easter-item">
-            <div class="easter-icon">🐱</div>
-            <h3>ESP32 Pwnagotchi</h3>
-            <p>AI-powered Wi-Fi hacking companion that learns from its environment.</p>
-          </div>
+  </div>
+  
+  <div id="easter-egg-panel" class="easter-egg-panel" role="dialog" aria-labelledby="easter-egg-title" aria-modal="true">
+    <div class="easter-egg-content">
+      <button class="close-easter" data-action="close-easter" aria-label="Fechar">&times;</button>
+      <h2 id="easter-egg-title">Hardware Arsenal</h2>
+      <div class="easter-grid">
+        <div class="easter-item">
+          <div class="easter-icon" aria-hidden="true">🐬</div>
+          <h3>Flipper Zero</h3>
+          <p>Multi-tool for geeks. Sub-GHz, RFID, NFC, IR, GPIO hacking in your pocket.</p>
+        </div>
+        <div class="easter-item">
+          <div class="easter-icon" aria-hidden="true">📶</div>
+          <h3>ESP32 Marauder</h3>
+          <p>Wi-Fi reconnaissance and pentesting tool for deauth, beacon spam, packet monitor.</p>
+        </div>
+        <div class="easter-item">
+          <div class="easter-icon" aria-hidden="true">🐕</div>
+          <h3>ESP32 Hale Hound</h3>
+          <p>Bluetooth Low Energy security testing and device enumeration platform.</p>
+        </div>
+        <div class="easter-item">
+          <div class="easter-icon" aria-hidden="true">👻</div>
+          <h3>ESP32 Ghost</h3>
+          <p>Stealthy wireless penetration testing device with custom firmware capabilities.</p>
+        </div>
+        <div class="easter-item">
+          <div class="easter-icon" aria-hidden="true">🦇</div>
+          <h3>ESP32 Bruce</h3>
+          <p>Versatile ESP32-based tool for wireless security assessments and protocol analysis.</p>
+        </div>
+        <div class="easter-item">
+          <div class="easter-icon" aria-hidden="true">🐱</div>
+          <h3>ESP32 Pwnagotchi</h3>
+          <p>AI-powered Wi-Fi hacking companion that learns from its environment.</p>
         </div>
       </div>
     </div>
-  </footer>
-  <script>
-    // Matrix Background with RockYou passwords
-    const canvas = document.getElementById('matrix-bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    // RockYou inspired passwords (top leaked passwords)
-    const rockyouPasswords = [
-      'password', '123456', 'password1', '12345678', 'qwerty',
-      'abc123', 'monkey', '1234567', 'letmein', 'trustno1',
-      'dragon', 'baseball', 'iloveyou', 'master', 'sunshine',
-      'ashley', 'bailey', 'shadow', '123123', '654321',
-      'superman', 'qazwsx', 'michael', 'football', 'password123',
-      'princess', 'azerty', 'solo', 'passw0rd', 'starwars',
-      'hello', 'charlie', 'donald', 'password2', 'nothing',
-      'amanda', 'qazwsxedc', 'ginger', 'joshua', 'tigger',
-      'thomas', 'soccer', 'hockey', 'ranger', 'jordan',
-      'hunter', 'buster', 'robert', 'daniel', 'andrew',
-      'summer', 'winter', 'spring', 'autumn', 'secret',
-      'freedom', 'whatever', 'killer', 'pepper', 'cheese',
-      'coffee', 'matrix', 'hacker', 'admin', 'root',
-      'login', 'test', 'guest', 'access', 'welcome'
-    ];
-    
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * canvas.height / fontSize;
-    }
-    
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00ff00';
-      ctx.font = fontSize + 'px monospace';
-      
-      for (let i = 0; i < drops.length; i++) {
-        // Show passwords randomly (27% chance)
-        if (Math.random() > 0.73) {
-          const password = rockyouPasswords[Math.floor(Math.random() * rockyouPasswords.length)];
-          ctx.fillText(password, i * fontSize, drops[i] * fontSize);
-        } else {
-          // Regular matrix chars (73%)
-          const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?/~`';
-          const text = chars[Math.floor(Math.random() * chars.length)];
-          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        }
-        
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-    setInterval(drawMatrix, 50);
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+  </div>
 
-    // Easter Egg - Press ++ or click score 3 times
-    let keySequence = '';
-    let clickCount = 0;
-    let clickTimer = null;
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === '+') {
-        keySequence += '+';
-        if (keySequence === '++') {
-          showEasterEgg();
-          keySequence = '';
-        }
-      } else {
-        keySequence = '';
-      }
-    });
-
-    document.querySelector('.score').addEventListener('click', () => {
-      clickCount++;
-      if (clickTimer) clearTimeout(clickTimer);
-      if (clickCount >= 3) {
-        showEasterEgg();
-        clickCount = 0;
-      }
-      clickTimer = setTimeout(() => clickCount = 0, 1000);
-    });
-
-    document.querySelector('.easter-egg-hint').addEventListener('click', () => {
-      showEasterEgg();
-    });
-
-    function showEasterEgg() {
-      document.getElementById('easter-egg-panel').classList.add('show');
-    }
-
-    function closeEasterEgg() {
-      document.getElementById('easter-egg-panel').classList.remove('show');
-    }
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeEasterEgg();
-        closeRoom27();
-        closeSecretInput();
-        closePasswordChallenge();
-        closeRockyouChallenge();
-      }
-    });
-
-    // Password Challenge - Professor Challenge (Sporting1906)
-    function openPasswordChallenge() {
-      document.getElementById('password-challenge-panel').classList.add('show');
-      document.getElementById('password-input').focus();
-    }
-
-    function closePasswordChallenge() {
-      document.getElementById('password-challenge-panel').classList.remove('show');
-      document.getElementById('password-input').value = '';
-      document.getElementById('password-error').textContent = '';
-      document.getElementById('password-success').textContent = '';
-    }
-
-    async function submitPasswordChallenge() {
-      const input = document.getElementById('password-input').value;
-      const errorElement = document.getElementById('password-error');
-      const successElement = document.getElementById('password-success');
-      
-      errorElement.textContent = '';
-      successElement.textContent = '';
-      
-      if (!input) {
-        errorElement.textContent = '⚠️ Enter a password to crack the hash!';
-        return;
-      }
-      
-      // Calculate SHA-256 hash of input
-      const encoder = new TextEncoder();
-      const data = encoder.encode(input);
-      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-      
-      // Correct hash: Sporting1906
-      const correctHash = '071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009';
-      
-      if (hashHex === correctHash) {
-        errorElement.textContent = '';
-        successElement.innerHTML = `<span class="success-title">🎉 PARABÉNS! 🎉</span><br><br>Já vi que tens um computador da Worten!<br>E usas a password MAIS FORTE de todas!!!`;
-        document.getElementById('password-input').value = '';
-      } else {
-        errorElement.innerHTML = '❌ ACCESS DENIED<br><span style="font-size: 0.85rem; color: #ff6666;">O problema está entre a cadeira e o teclado... 🪑</span>';
-        successElement.textContent = '';
-        document.getElementById('password-input').value = '';
-      }
-    }
-
-    document.getElementById('password-input').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitPasswordChallenge();
-      }
-    });
-
-    // Secret Code Input - Room 27
-    function openSecretInput() {
-      document.getElementById('secret-code-panel').classList.add('show');
-      document.getElementById('secret-code-input').focus();
-    }
-
-    function closeSecretInput() {
-      document.getElementById('secret-code-panel').classList.remove('show');
-      document.getElementById('secret-code-input').value = '';
-      document.getElementById('secret-error').textContent = '';
-    }
-
-    function submitSecretCode() {
-      const input = document.getElementById('secret-code-input').value.trim();
-      const sanitized = input.replace(/[^0-9#]/g, '');
-      if (sanitized === '27' || sanitized === '#27') {
-        closeSecretInput();
-        openRoom27();
-      } else {
-        document.getElementById('secret-error').textContent = 'ACCESS DENIED - Invalid code';
-        document.getElementById('secret-code-input').value = '';
-      }
-    }
-
-    document.getElementById('secret-code-input').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitSecretCode();
-      }
-    });
-
-    function openRoom27() {
-      document.getElementById('room27-panel').classList.add('show');
-    }
-
-    function closeRoom27() {
-      document.getElementById('room27-panel').classList.remove('show');
-    }
-
-    // RockYou Challenge
-    function openRockyouChallenge() {
-      document.getElementById('rockyou-panel').classList.add('show');
-      document.getElementById('rockyou-input').focus();
-    }
-
-    function closeRockyouChallenge() {
-      document.getElementById('rockyou-panel').classList.remove('show');
-      document.getElementById('rockyou-input').value = '';
-      document.getElementById('rockyou-error').textContent = '';
-      document.getElementById('rockyou-success').textContent = '';
-    }
-
-    async function submitRockyouChallenge() {
-      const input = document.getElementById('rockyou-input').value;
-      const errorElement = document.getElementById('rockyou-error');
-      const successElement = document.getElementById('rockyou-success');
-      
-      errorElement.textContent = '';
-      successElement.textContent = '';
-      
-      if (!input) {
-        errorElement.textContent = '⚠️ Enter a password to crack the hash!';
-        return;
-      }
-      
-      // Calculate SHA-256 hash
-      const encoder = new TextEncoder();
-      const data = encoder.encode(input);
-      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-      
-      // Correct hash: password123 (from rockyou.txt)
-      const correctHash = 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f';
-      
-      if (hashHex === correctHash) {
-        errorElement.textContent = '';
-        successElement.innerHTML = `<span class="success-title">🔓 HASH CRACKED!</span><br><br>Password: <strong style="color:#27c93f; font-size:1.2rem;">password123</strong><br><br>This hash would be cracked in <strong style="color:#f00">&lt; 1 second</strong> with modern GPU!<br><br>The <strong>rockyou.txt</strong> breach (2009) exposed 14.3M passwords.<br>Always use strong, unique passwords! 💀`;
-        document.getElementById('rockyou-input').value = '';
-      } else {
-        errorElement.innerHTML = '❌ WRONG HASH<br><span style="font-size: 0.85rem; color: #ff6666;">Try again! Hint: Think like a lazy user...</span>';
-        successElement.textContent = '';
-      }
-    }
-
-    document.getElementById('rockyou-input').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitRockyouChallenge();
-      }
-    });
-
-    // Console Easter Egg
-    console.log('%c🔒 LayerZeppelin Security Portfolio', 'color: #00ff00; font-size: 20px; font-weight: bold;');
-    console.log('%cHardware Arsenal: Flipper Zero | ESP32 Marauder | Hale Hound | Ghost | Bruce | Pwnagotchi', 'color: #00ff00; font-size: 12px;');
-    console.log('%cPress ++ anywhere or click the security score 3 times for a surprise!', 'color: #888; font-size: 10px;');
-    console.log('%c[SECRET] There\'s a hidden room... Find the code: #__', 'color: #00ff00; font-size: 10px;');
-    console.log('%c[HINT] The number you seek is twenty-seven', 'color: #006600; font-size: 10px;');
-    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #333; font-size: 10px;');
-    console.log('%c🎭 Mr. Robot Easter Egg', 'color: #ff0000; font-size: 14px; font-weight: bold;');
-    console.log('%c"Control is an illusion." - Elliot Alderson', 'color: #888; font-size: 10px; font-style: italic;');
-    console.log('%cTry the Konami code: ↑↑↓↓←→←→BA', 'color: #00ff00; font-size: 10px;');
-    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #333; font-size: 10px;');
-    console.log('%c💀 RockYou Challenge', 'color: #ff0000; font-size: 12px; font-weight: bold;');
-    console.log('%cCan you crack the hash? Check the footer!', 'color: #888; font-size: 10px;');
-
-    // Mr. Robot Konami Code Easter Egg
-    let konamiCode = [];
-    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-    
-    document.addEventListener('keydown', (e) => {
-      konamiCode.push(e.code);
-      konamiCode = konamiCode.slice(-10);
-      
-      if (konamiCode.join(',') === konamiSequence.join(',')) {
-        showMrRobotEasterEgg();
-        konamiCode = [];
-      }
-    });
-
-    function showMrRobotEasterEgg() {
-      const panel = document.createElement('div');
-      panel.className = 'mr-robot-panel';
-      panel.innerHTML = `
-        <div class="mr-robot-content">
-          <button class="close-easter" onclick="this.parentElement.parentElement.remove();">&times;</button>
-          <div class="mr-robot-ascii">
-<pre>
-    ╔══════════════════════════════════════╗
-    ║  ██████╗ ██████╗ ███████╗ █████╗ ██╗███╗   ██╗███████╗██████╗ ║
-    ║  ██╔══██╗██╔══██╗██╔════╝██╔══██╗██║████╗  ██║██╔════╝██╔══██╗║
-    ║  ██████╔╝██████╔╝█████╗  ███████║██║██╔██╗ ██║█████╗  █████╔╝║
-    ║  ██╔══██╗██╔══██╗██╔══╝  ██╔══██║██║██║╚██╗██║██╔══╝  ██╔══██╗║
-    ║  ██║  ██║██████╔╝███████╗██║  ██║██║██║ ╚████║███████╗██║  ██║║
-    ║  ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝║
-    ╚══════════════════════════════════════╝
-</pre>
-          </div>
-          <h3 style="color: #e00; text-shadow: 0 0 10px #f00;">fsociety</h3>
-          <p style="color: #888; font-style: italic;">"Our democracy has been hacked."</p>
-          <div class="mr-robot-commands">
-            <p style="color: #0f0;"><strong>Shell Commands Used:</strong></p>
-            <code style="display: block; color: #0f0; background: #111; padding: 0.5rem; margin: 0.5rem 0; font-size: 0.8rem;">
-              $ whoami<br>
-              $ ls -la /var/www<br>
-              $ nmap -sV -sC example.com<br>
-              $ hydra -l user -P wordlist.txt ssh://target<br>
-              $ msfconsole<br>
-              $ burpsuite<br>
-              $ airmon-ng start wlan0<br>
-              $ airodump-ng wlan0mon<br>
-              $ grep -r "password" /var/www/html/<br>
-              $ nc -lvnp 4444<br>
-              $ python -m http.server 8080<br>
-            </code>
-            <p style="color: #888; margin-top: 1rem;"><strong>Evil Corp References:</strong></p>
-            <ul style="color: #666; text-align: left; padding-left: 2rem;">
-              <li>E Corp (Evil Corp) - The conglomerate</li>
-              <li>Steel Mountain - Data storage company</li>
-              <li>Whiterose - Dark Army leader</li>
-              <li>Price, Tyrell, Angela - Key figures</li>
-              <li>Raspberry Pi hacks</li>
-              <li>Distributed data backup attack</li>
-            </ul>
-          </div>
-          <p style="color: #0f0; margin-top: 1rem; font-size: 0.9rem;">
-            "A bug is never just a bug. It's a symptom of a deeper flaw in the system."<br>
-            <span style="color: #666;">— Elliot Alderson</span>
-          </p>
-        </div>
-      `;
-      document.body.appendChild(panel);
-    }
-
-    // Anti-copy protection
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-    document.addEventListener('selectstart', (e) => e.preventDefault());
-    document.addEventListener('copy', (e) => e.preventDefault());
-    document.addEventListener('cut', (e) => e.preventDefault());
-    
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'p')) {
-        e.preventDefault();
-      }
-      if (e.key === 'F12') {
-        e.preventDefault();
-      }
-      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
-        e.preventDefault();
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
