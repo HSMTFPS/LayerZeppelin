@@ -15,7 +15,9 @@ a:hover{text-shadow:0 0 10px var(--accent)}
 a:focus{outline:2px solid var(--accent);outline-offset:2px}
 .navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-color);z-index:1000}
 .nav-brand{font-size:1.2rem;font-weight:bold;color:var(--accent);display:flex;align-items:center;gap:10px}
-.nav-logo{width:40px;height:40px;object-fit:contain;border-radius:4px}
+.nav-logo{width:160px;height:160px;object-fit:contain;border-radius:8px;margin-right:10px}
+.nav-brand a{display:flex;align-items:center;text-decoration:none}
+.nav-brand span{color:var(--accent);font-size:1.2rem;font-weight:bold}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:var(--text-secondary);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px}
 .nav-links a:hover{color:var(--accent)}
