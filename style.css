@@ -215,6 +215,8 @@ a:focus{outline:2px solid var(--accent);outline-offset:2px}
 .cookie-settings-btn:hover{text-decoration:underline}
 .cert-completed{border-color:var(--accent)!important;background:rgba(0,255,0,0.05)!important}
 .cert-status.completed{background:var(--accent)!important;color:var(--bg-primary)!important;font-weight:700}
+.cert-link{display:inline-block;margin-top:0.75rem;color:var(--accent);font-size:0.8rem;text-decoration:none;transition:all 0.3s ease}
+.cert-link:hover{text-shadow:0 0 10px var(--accent)}
 .skill-completed{border-color:var(--accent)!important;background:rgba(0,255,0,0.05)!important}
 .skill-card p{margin:0}
 .github-section{margin-top:3rem}
