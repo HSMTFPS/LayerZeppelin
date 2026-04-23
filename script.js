@@ -729,6 +729,9 @@
                     case 'close-easter':
                         window.closeEasterEgg && window.closeEasterEgg();
                         break;
+                    case 'toggle-theme':
+                        ThemeToggle.toggle();
+                        break;
                 }
             });
             
@@ -747,7 +750,100 @@
         }
     };
     
-    const ConsoleMessage = {
+    const ThemeToggle = {
+        storageKey: 'theme-preference',
+        
+        init: function() {
+            const saved = localStorage.getItem(this.storageKey);
+            if (saved === 'light') {
+                document.body.classList.add('light-theme');
+                this.updateIcon('light');
+            }
+        },
+        
+        toggle: function() {
+            const isLight = document.body.classList.toggle('light-theme');
+            localStorage.setItem(this.storageKey, isLight ? 'light' : 'dark');
+            this.updateIcon(isLight ? 'light' : 'dark');
+        },
+        
+        updateIcon: function(theme) {
+            const icon = DOM.el('.theme-icon');
+            if (icon) {
+                icon.textContent = theme === 'light' ? '☀️' : '🌙';
+            }
+        }
+    };
+    
+    const GitHubRepos = {
+        username: 'HSMTFPS',
+        cacheKey: 'github_repos_cache',
+        cacheTime: 3600000,
+        
+        init: function() {
+            this.loadRepos();
+        },
+        
+        loadRepos: async function() {
+            const container = DOM.el('#github-repos');
+            const loading = DOM.el('#github-loading');
+            
+            if (!container) return;
+            
+            const cached = this.getCache();
+            if (cached) {
+                this.renderRepos(cached, container);
+                if (loading) loading.style.display = 'none';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`https://api.github.com/users/${this.username}/repos?sort=updated&per_page=6`);
+                if (!response.ok) throw new Error('Failed to fetch');
+                
+                const repos = await response.json();
+                this.setCache(repos);
+                this.renderRepos(repos, container);
+                if (loading) loading.style.display = 'none';
+            } catch (error) {
+                if (loading) {
+                    loading.textContent = 'Unable to load repositories';
+                    loading.style.color = '#ff5f56';
+                }
+            }
+        },
+        
+        getCache: function() {
+            try {
+                const cached = localStorage.getItem(this.cacheKey);
+                if (!cached) return null;
+                const { data, timestamp } = JSON.parse(cached);
+                if (Date.now() - timestamp > this.cacheTime) return null;
+                return data;
+            } catch { return null; }
+        },
+        
+        setCache: function(data) {
+            try {
+                localStorage.setItem(this.cacheKey, JSON.stringify({ data, timestamp: Date.now() }));
+            } catch {}
+        },
+        
+        renderRepos: function(repos, container) {
+            if (!repos || repos.length === 0) return;
+            
+            container.innerHTML = repos.map(repo => `
+                <div class="github-card">
+                    <h4><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h4>
+                    <p>${repo.description || 'No description'}</p>
+                    <div class="repo-stats">
+                        <span>⭐ ${repo.stargazers_count}</span>
+                        <span>🔤 ${repo.language || 'N/A'}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+    };
         init: function() {
             console.log('%c🔒 LayerZeppelin Security Portfolio', 'color: #00ff00; font-size: 20px; font-weight: bold;');
             console.log('%c⚡ Cybersecurity | Penetration Testing | Ethical Hacking', 'color: #00ff00; font-size: 12px;');
@@ -771,6 +867,8 @@
         EasterEggs.init();
         Panels.init();
         ActionHandlers.init();
+        ThemeToggle.init();
+        GitHubRepos.init();
         ConsoleMessage.init();
     }
     
