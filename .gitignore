@@ -58,3 +58,6 @@ dns-config-amen.csv
 
 # Duplicate images directory
 images/images/
+
+# Backups — NÃO commitar backups locais
+backups/
