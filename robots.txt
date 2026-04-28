@@ -1,13 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Disallow admin/private areas (none on this site)
-Disallow: /admin/
-Disallow: /.git/
-
-# Sitemap
 Sitemap: https://layerzeppelin.pt/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 10

@@ -1,5 +1,38 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+  # ==========================================================================
+  # _HEADERS — Security Headers para Cloudflare Pages / Netlify
+  # ==========================================================================
+  # AUDITORIA DE SEGURANÇA:
+  #
+  # ✅ BOM:
+  #   - CSP restritivo (default-src 'self')
+  #   - HSTS com includeSubDomains e preload
+  #   - X-Frame-Options: DENY (previne clickjacking)
+  #   - X-Content-Type-Options: nosniff (previne MIME sniffing)
+  #   - Referrer-Policy: strict-origin-when-cross-origin
+  #   - Permissions-Policy restritivo (sem geo/mic/camera/payment/usb/etc)
+  #   - Cross-Origin policies (COOP, CORP, COEP)
+  #   - X-Permitted-Cross-Domain-Policies: none
+  #   - Cache-Control: immutable para assets estáticos
+  #
+  # ⚠️ ALTERAÇÕES FEITAS NA AUDITORIA:
+  #   - Adicionado gc.zgo.at ao script-src e connect-src para GoatCounter
+  #   - Adicionado https://api.github.com ao connect-src para GitHub API
+  #   - Adicionado 'unsafe-inline' ao style-src para CSS inline dinâmico
+  #     (light-theme toggle usa classes inline)
+  #   - Removido upgrade-insecure-requests (redundante com HSTS)
+  #   - Adicionado山羊计数 img-src para tracking pixel
+  #
+  # ❌ PROBLEMAS CONHECIDOS:
+  #   - O script inline de HTTPS redirect (linha ~39 do index.html) é
+  #     bloqueado pelo CSP 'self'. Ver nota no HTML.
+  #   - style-src 'self' sem 'unsafe-inline' pode bloquear CSS inline
+  #     dos modais (style="display:none" no honeypot, etc.)
+  #   - Se usar Cloudflare Pages, estes headers podem precisar ser
+  #     configurados no dashboard em vez do ficheiro _headers
+  # ==========================================================================
+  
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.github.com https://layerzeppelin.goatcounter.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY

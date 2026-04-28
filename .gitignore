@@ -24,7 +24,7 @@ logs/
 *.log
 npm-debug.log*
 
-# Dependencies
+# Dependencies — NÃO commitar node_modules!
 node_modules/
 
 # Build outputs
@@ -52,3 +52,9 @@ secrets.txt
 *.pem
 *.key
 credentials.*
+
+# DNS configuration files — PODE conter dados sensíveis
+dns-config-amen.csv
+
+# Duplicate images directory
+images/images/

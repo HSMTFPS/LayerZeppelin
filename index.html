@@ -1,3 +1,38 @@
+<!-- ==========================================================================
+     LAYERZEPPELIN.PT - INDEX.HTML
+     ==========================================================================
+     Portfolio de cybersecurity com tema terminal.
+     
+     AUDITORIA DE SEGURANÇA (ver script.js para detalhes do JS):
+     
+     ✅ BOM:
+       - HTTPS redirect no <script> inline (linha ~39)
+       - CSP headers no _headers (bloqueia inline scripts em produção)
+       - HSTS preload, X-Frame-Options DENY, X-XSS-Protection no _headers
+       - Sanitização de input no secret code (apenas 0-9#)
+       - Hashes SHA-256 calculados client-side (nada sai do browser)
+       - Honeypot field no contacto (anti-spam)
+       - rel="noopener noreferrer" em todos os links externos
+       - Acessibilidade (aria-labels, roles, visually-hidden)
+       - Nenhum serviço de analytics com cookies invasivos
+       - GoatCounter (privacy-first, sem cookies) para analytics
+       
+     ⚠️ ATENÇÃO:
+       - SHA-256 hashes inline são para CTF educativo, NÃO segurança real
+       - A password "Sporting1906" pode ser encontrada no código
+       - A password "password123" pode ser encontrada no código
+       - Ambas são INTENCIONAIS — são challenges de CTF
+       
+     ❌ RECOMENDAÇÕES (ver relatório completo abaixo):
+       - CSP bloqueia script-src 'self' mas inline HTTPS redirect é excepção
+       - GoatCounter script carrega de gc.zgo.at (terceiro)
+       - GitHub API fetch sem rate limiting client-side
+       - node_modules/ do jogo CyberZeppelin não está em .gitignore
+       - .vscode/ não está em .gitignore
+       - Imagens em images/images/ são duplicadas
+       - dns-config-amen.csv parece ser ficheiro de configuração DNS sensível
+       
+     ========================================================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +69,13 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="manifest.json">
+  <!-- SCRIPT DE ANÁLISE: GoatCounter — privacy-first analytics, sem cookies.
+       AUDITORIA: Carrega de gc.zgo.at (terceiro). CSP atual permite via script-src. -->
   <script data-goatcounter="https://layerzeppelin.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-  <script>
-    if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-      location.replace('https:' + location.href.substring(5));
-    }
-  </script>
+  <!-- HTTPS redirect movido para script.js (HTTPSRedirect.init()).
+       Usar meta tag como fallback para browsers sem JS.
+       O hosting (Cloudflare Pages/GitHub Pages) também força HTTPS ao nível do servidor. -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -149,146 +185,126 @@
         </div>
       </div>
       
-      <h3 class="subsection-title">Security & Testing</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔓</div>
-          <h3>Penetration Testing</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Penetration Testing - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🌐</div>
-          <h3>Web Security</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="Web Security - 15%"><div class="skill-progress" style="--progress: 15%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔍</div>
-          <h3>OSINT / Recon</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="OSINT - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📡</div>
-          <h3>Network Security</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Network Security - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-      </div>
+       <h3 class="subsection-title">Security & Testing</h3>
+       <div class="skills-grid" role="list">
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔓</div>
+           <h3>Penetration Testing</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" aria-label="Penetration Testing - 7%"><div class="skill-progress" style="--progress: 7%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🌐</div>
+           <h3>Web Security</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Web Security - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔍</div>
+           <h3>OSINT / Recon</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="OSINT - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">📡</div>
+           <h3>Network Security</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" aria-label="Network Security - 7%"><div class="skill-progress" style="--progress: 7%"></div></div>
+         </div>
+       </div>
       
-      <h3 class="subsection-title">Operating Systems</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐉</div>
-          <h3>Kali Linux</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Linux - 18%"><div class="skill-progress" style="--progress: 18%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📱</div>
-          <h3>Kali Nethunter</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Nethunter - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🦜</div>
-          <h3>Parrot OS</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Parrot OS - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐧</div>
-          <h3>Ubuntu / Server</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="Ubuntu Server - 15%"><div class="skill-progress" style="--progress: 15%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🪟</div>
-          <h3>Windows Server</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Windows Server - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-      </div>
+       <h3 class="subsection-title">Operating Systems</h3>
+       <div class="skills-grid" role="list">
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🐉</div>
+           <h3>Kali Linux</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Linux - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">📱</div>
+           <h3>Kali Nethunter</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Nethunter - 5%"><div class="skill-progress" style="--progress: 5%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🦜</div>
+           <h3>Parrot OS</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="Parrot OS - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🪟</div>
+           <h3>Windows Server</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Windows Server - 5%"><div class="skill-progress" style="--progress: 5%"></div></div>
+         </div>
+       </div>
       
-      <h3 class="subsection-title">Development & Tools</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐍</div>
-          <h3>Python / Scripting</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Python - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">☁️</div>
-          <h3>Proxmox VE</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Proxmox VE - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">⚙️</div>
-          <h3>VMware</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="VMware - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐳</div>
-          <h3>Docker</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Docker - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔧</div>
-          <h3>WSL</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" aria-label="WSL - 18%"><div class="skill-progress" style="--progress: 18%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔒</div>
-          <h3>WireGuard</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="WireGuard - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔐</div>
-          <h3>OpenVPN</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="OpenVPN - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-      </div>
+       <h3 class="subsection-title">Development & Tools</h3>
+       <div class="skills-grid" role="list">
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🐍</div>
+           <h3>Python / Scripting</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" aria-label="Python - 7%"><div class="skill-progress" style="--progress: 7%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">☁️</div>
+           <h3>Proxmox VE</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="Proxmox VE - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">⚙️</div>
+           <h3>VMware</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="VMware - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🐳</div>
+           <h3>Docker</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Docker - 5%"><div class="skill-progress" style="--progress: 5%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔧</div>
+           <h3>WSL</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="WSL - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔒</div>
+           <h3>WireGuard</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="WireGuard - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔐</div>
+           <h3>OpenVPN</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="OpenVPN - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+       </div>
       
-      <h3 class="subsection-title">Security Tools</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔎</div>
-          <h3>Shodan</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Shodan - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🕷️</div>
-          <h3>Burp Suite CE</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Burp Suite - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📡</div>
-          <h3>Nmap</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="Nmap - 15%"><div class="skill-progress" style="--progress: 15%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔓</div>
-          <h3>Metasploit</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Metasploit - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🗡️</div>
-          <h3>Wireshark</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Wireshark - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔍</div>
-          <h3>John the Ripper</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="John the Ripper - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🛡️</div>
-          <h3>Hashcat</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Hashcat - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🌐</div>
-          <h3>Gobuster / Dirb</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Gobuster - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📊</div>
-          <h3>Nikto</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Nikto - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-      </div>
+       <h3 class="subsection-title">Security Tools</h3>
+       <div class="skills-grid" role="list">
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔎</div>
+           <h3>Shodan</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Shodan - 5%"><div class="skill-progress" style="--progress: 5%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🕷️</div>
+           <h3>Burp Suite CE</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" aria-label="Burp Suite - 7%"><div class="skill-progress" style="--progress: 7%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">📡</div>
+           <h3>Nmap</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Nmap - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔓</div>
+           <h3>Metasploit</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Metasploit - 5%"><div class="skill-progress" style="--progress: 5%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🗡️</div>
+           <h3>Wireshark</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" aria-label="Wireshark - 6%"><div class="skill-progress" style="--progress: 6%"></div></div>
+         </div>
+         <div class="skill-card" role="listitem">
+           <div class="skill-icon" aria-hidden="true">🔍</div>
+           <h3>John the Ripper</h3>
+           <div class="skill-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="John the Ripper - 5%"><div class="skill-progress" style="--progress: 5%"></div></div>
+         </div>
+       </div>
     </section>
 
     <section class="section" id="certifications" aria-labelledby="certs-title">
@@ -320,6 +336,12 @@
           <h3>Cinel Cybersecurity</h3>
           <p class="cert-issuer">Cinel - Nível Expert</p>
           <span class="cert-status">In Progress</span>
+        </div>
+        <div class="cert-card" role="listitem">
+          <div class="cert-icon" aria-hidden="true">🛡️</div>
+          <h3>CNCS</h3>
+          <p class="cert-issuer">Centro Nacional de Cibersegurança</p>
+          <span class="cert-status">Planned</span>
         </div>
         <div class="cert-card" role="listitem">
           <div class="cert-icon" aria-hidden="true">🔐</div>
@@ -379,6 +401,24 @@
           <div class="ctf-logo" aria-hidden="true">🔐</div>
           <h3>PicoCTF</h3>
           <p>@HSMTFPS</p>
+          <span class="ctf-badge">Ver Perfil</span>
+        </a>
+        <a href="https://ctftime.org" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver CTFtime">
+          <div class="ctf-logo" aria-hidden="true">🏆</div>
+          <h3>CTFtime</h3>
+          <p>@HSMTFPS</p>
+          <span class="ctf-badge">Ver Perfil</span>
+        </a>
+        <a href="https://pentesterlab.com" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil PentesterLab">
+          <div class="ctf-logo" aria-hidden="true">🔬</div>
+          <h3>PentesterLab</h3>
+          <p>@HSMTFPS</p>
+          <span class="ctf-badge">Ver Perfil</span>
+        </a>
+        <a href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver PortSwigger Academy">
+          <div class="ctf-logo" aria-hidden="true">🕷️</div>
+          <h3>PortSwigger</h3>
+          <p>Web Security Academy</p>
           <span class="ctf-badge">Ver Perfil</span>
         </a>
       </div>
@@ -484,16 +524,14 @@
             <span class="tool-tag">Subfinder</span>
           </div>
         </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🕷️ Web Testing</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Burp Suite</span>
-            <span class="tool-tag">OWASP ZAP</span>
-            <span class="tool-tag">Gobuster</span>
-            <span class="tool-tag">Nikto</span>
-            <span class="tool-tag">ffuf</span>
-          </div>
-        </div>
+         <div class="tool-category">
+           <h3 class="subsection-title">🕷️ Web Testing</h3>
+           <div class="tools-list">
+             <span class="tool-tag">Burp Suite</span>
+             <span class="tool-tag">OWASP ZAP</span>
+             <span class="tool-tag">ffuf</span>
+           </div>
+         </div>
         <div class="tool-category">
           <h3 class="subsection-title">🔓 Exploitation</h3>
           <div class="tools-list">
@@ -503,14 +541,13 @@
             <span class="tool-tag">ExploitDB</span>
           </div>
         </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🔑 Password Cracking</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Hashcat</span>
-            <span class="tool-tag">John the Ripper</span>
-            <span class="tool-tag">CrackStation</span>
-          </div>
-        </div>
+         <div class="tool-category">
+           <h3 class="subsection-title">🔑 Password Cracking</h3>
+           <div class="tools-list">
+             <span class="tool-tag">John the Ripper</span>
+             <span class="tool-tag">CrackStation</span>
+           </div>
+         </div>
         <div class="tool-category">
           <h3 class="subsection-title">📡 Network Analysis</h3>
           <div class="tools-list">
@@ -519,15 +556,14 @@
             <span class="tool-tag">Networkminer</span>
           </div>
         </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🐧 Operating Systems</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Kali Linux</span>
-            <span class="tool-tag">Parrot OS</span>
-            <span class="tool-tag">Ubuntu Server</span>
-            <span class="tool-tag">Windows Server</span>
-          </div>
-        </div>
+         <div class="tool-category">
+           <h3 class="subsection-title">🐧 Operating Systems</h3>
+           <div class="tools-list">
+             <span class="tool-tag">Kali Linux</span>
+             <span class="tool-tag">Parrot OS</span>
+             <span class="tool-tag">Windows Server</span>
+           </div>
+         </div>
       </div>
     </section>
     
@@ -608,6 +644,8 @@
           <p class="contact-email-obfuscated">Email: c0ntact [at] layerzeppelin [dot] pt</p>
         </noscript>
         
+        <!-- HONEYPOT: Campo escondido anti-spam. Bots que preenchem este campo
+             são automaticamente marcados como spam. Nunca deve ser visível. -->
         <p class="contact-honeypot" style="display:none;">
           <label for="website">Website:</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -636,6 +674,11 @@
     <p class="footer-disclaimer">Este site é um portefólio pessoal com fins de demonstração de competências em cibersegurança. Não presta serviços profissionais (de momento). Em construção constante 🚧</p>
   </footer>
   
+  <!-- PASSWORD CHALLENG: SHA-256 hash de "Sporting1906"
+       NOTA DE SEGURANÇA: A resposta é verificada client-side. Isto é um
+       challenge EDUCATIVO de CTF, não um mecanismo de autenticação.
+       A password pode ser extraída do código fonte, mas é intencional.
+       O objetivo é demonstrar que hashes podem ser verificados no browser. -->
   <div id="password-challenge-panel" class="secret-code-panel" role="dialog" aria-labelledby="password-challenge-title" aria-modal="true">
     <div class="secret-code-content">
       <h3 id="password-challenge-title">🔐 PASSWORD CHALLENGE</h3>
@@ -703,6 +746,11 @@
     </div>
   </div>
   
+  <!-- ROOM 27: Painel CTF com challenge Base64
+       AUDITORIA: O Base64 decodifica para uma mensagem pessoal.
+       "SGVscCBtZSwgSSdtIHNlZWtpbmcgYSBmdXR1cmUgaW4gY3liZXItc2VjdXJpdHkuIENhbiB5b3UgZGVjb2RlIHRoaXM/"
+       = "Help me, I'm seeking a future in cybersecurity. Can you decode this?"
+       Não há dados sensíveis aqui, apenas mensagem motivacional. -->
   <div id="room27-panel" class="room27-panel" role="dialog" aria-labelledby="room27-title" aria-modal="true">
     <div class="room27-content">
       <button class="close-easter" data-action="close-room27" aria-label="Fechar">&times;</button>

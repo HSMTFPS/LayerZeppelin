@@ -1,26 +1,21 @@
 {
   "name": "LayerZeppelin - Cybersecurity Portfolio",
   "short_name": "LayerZeppelin",
-  "description": "Portefólio de Cibersegurança - Penetration Testing, Web Security, Ethical Hacking",
+  "description": "Hermínio Teles - Cybersecurity professional specializing in penetration testing, web security, and blue team operations.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#00ff00",
-  "orientation": "portrait-primary",
-  "scope": "/",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "src": "images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "categories": ["portfolio", "security", "technology"],
-  "lang": "pt-PT"
+  ]
 }
