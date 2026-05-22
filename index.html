@@ -17,11 +17,9 @@
        - Nenhum serviço de analytics com cookies invasivos
        - GoatCounter (privacy-first, sem cookies) para analytics
        
-     ⚠️ ATENÇÃO:
-       - SHA-256 hashes inline são para CTF educativo, NÃO segurança real
-       - A password "Sporting1906" pode ser encontrada no código
-       - A password "password123" pode ser encontrada no código
-       - Ambas são INTENCIONAIS — são challenges de CTF
+      ⚠️ ATENÇÃO:
+        - SHA-256 hashes inline são para CTF educativo, NÃO segurança real
+        - As respostas aos challenges são intencionais — são challenges de CTF
        
      ❌ RECOMENDAÇÕES (ver relatório completo abaixo):
        - CSP bloqueia script-src 'self' mas inline HTTPS redirect é excepção
@@ -628,9 +626,9 @@
           </div>
           <div class="terminal-body contact-terminal">
             <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL</p>
-            <p class="output"><a href="mailto:contact@layerzeppelin.pt" aria-label="Enviar email para contact@layerzeppelin.pt">contact@layerzeppelin.pt</a></p>
-            <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL_ALT</p>
-            <p class="output"><a href="mailto:hsmtfps@gmail.com" aria-label="Enviar email para hsmtfps@gmail.com">hsmtfps@gmail.com</a></p>
+             <p class="output"><a href="#" class="obfuscated-email" data-user="contact" data-domain="layerzeppelin.pt" aria-label="Enviar email para contact@layerzeppelin.pt">contact@layerzeppelin.pt</a></p>
+             <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL_ALT</p>
+             <p class="output"><a href="#" class="obfuscated-email" data-user="hsmtfps" data-domain="gmail.com" aria-label="Enviar email para hsmtfps@gmail.com">hsmtfps@gmail.com</a></p>
             <p><span class="prompt" aria-hidden="true">$</span> echo $GITHUB</p>
             <p class="output"><a href="https://github.com/HSMTFPS" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil GitHub">github.com/HSMTFPS</a></p>
             <p><span class="prompt" aria-hidden="true">$</span> echo $LINKEDIN</p>
@@ -642,6 +640,7 @@
         <noscript>
           <p class="contact-note">JavaScript is required for email display.</p>
           <p class="contact-email-obfuscated">Email: c0ntact [at] layerzeppelin [dot] pt</p>
+          <p class="contact-email-obfuscated">Email alternativo: hsmtpfps [at] gmail [dot] com</p>
         </noscript>
         
         <!-- HONEYPOT: Campo escondido anti-spam. Bots que preenchem este campo
@@ -662,23 +661,19 @@
       <p class="secret-code-hint" data-action="open-secret" tabindex="0" role="button" aria-label="Pressione para introduzir código secreto">[Access Terminal? Enter Code: #__]</p>
       <p class="easter-egg-hint" style="margin-top: 5px; opacity: 0.2;" data-action="open-rockyou" tabindex="0" role="button" aria-label="Pressione para abrir desafio RockYou">[💀 RockYou Challenge - Crack the Hash]</p>
     </div>
-    <div class="footer-legal">
-      <a href="privacy.html">Privacidade</a>
-      <span aria-hidden="true">|</span>
-      <a href="terms.html">Termos</a>
-      <span aria-hidden="true">|</span>
-      <a href="cookies.html">Cookies</a>
-      <span aria-hidden="true">|</span>
-      <button class="cookie-settings-btn" data-action="cookie-prefs" style="background:none;border:none;color:var(--accent);cursor:pointer;font-family:inherit;font-size:0.85rem;">Preferências de Cookies</button>
-    </div>
+     <div class="footer-legal">
+       <a href="privacidade.html">Privacidade</a>
+       <span aria-hidden="true">|</span>
+       <a href="termos.html">Termos</a>
+       <span aria-hidden="true">|</span>
+       <a href="cookies.html">Cookies</a>
+       <span aria-hidden="true">|</span>
+       <button class="cookie-settings-btn" data-action="cookie-prefs" style="background:none;border:none;color:var(--accent);cursor:pointer;font-family:inherit;font-size:0.85rem;">Preferências de Cookies</button>
+     </div>
     <p class="footer-disclaimer">Este site é um portefólio pessoal com fins de demonstração de competências em cibersegurança. Não presta serviços profissionais (de momento). Em construção constante 🚧</p>
   </footer>
   
-  <!-- PASSWORD CHALLENG: SHA-256 hash de "Sporting1906"
-       NOTA DE SEGURANÇA: A resposta é verificada client-side. Isto é um
-       challenge EDUCATIVO de CTF, não um mecanismo de autenticação.
-       A password pode ser extraída do código fonte, mas é intencional.
-       O objetivo é demonstrar que hashes podem ser verificados no browser. -->
+  <!-- CTF: Find the hash in the challenge, the answer is not in the source -->
   <div id="password-challenge-panel" class="secret-code-panel" role="dialog" aria-labelledby="password-challenge-title" aria-modal="true">
     <div class="secret-code-content">
       <h3 id="password-challenge-title">🔐 PASSWORD CHALLENGE</h3>

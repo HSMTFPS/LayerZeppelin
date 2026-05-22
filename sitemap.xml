@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://layerzeppelin.pt/</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://layerzeppelin.pt/privacy.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://layerzeppelin.pt/privacidade.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://layerzeppelin.pt/terms.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://layerzeppelin.pt/termos.html</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://layerzeppelin.pt/cookies.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

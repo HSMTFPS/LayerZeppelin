@@ -53,6 +53,7 @@
         setText: (el, text) => { el.textContent = text; return el; },  // textContent previne XSS
         addClass: (el, ...classes) => { el.classList.add(...classes); return el; },
         removeClass: (el, ...classes) => { el.classList.remove(...classes); return el; },
+        toggleClass: (el, cls) => el.classList.toggle(cls),
         setAttr: (el, attr, value) => { el.setAttribute(attr, value); return el; }
     };
     
@@ -470,14 +471,14 @@
      *   - Click 3x no "Security Score" → Hardware Arsenal
      *   - Click em hints com data-action → diferentes painéis
      *   - Room 27 (código secreto #27) → CTF Challenge
-     *   - Password Challenge (SHA-256 hash de "Sporting1906")
-     *   - RockYou Challenge (SHA-256 hash de "password123")
+ *   - Password Challenge (SHA-256 hash)
+ *   - RockYou Challenge (SHA-256 hash)
      * 
      * SEGURANÇA:
      *   - Os hashes SHA-256 são verificados client-side. Isto é intencional
      *     porque são challenges educativos, não segurança real.
-     *   - As passwords (Sporting1906, password123) podem ser extraídas do
-     *     código, MAS é o propósito do challenge — é um CTF educativo.
+ *   - As respostas aos challenges podem ser extraídas do código,
+ *     MAS é o propósito do challenge — é um CTF educativo.
      *   - sanitize no secret code: remove tudo exceto números e #
      * ----------------------------------------------------------------------- */
     const EasterEggs = {
@@ -768,8 +769,8 @@
                 if (panel) DOM.removeClass(panel, 'show');
             };
             
-            // Password Challenge — SHA-256 de "Sporting1906"
-            // NOTA DE SEGURANÇA: Isto é um challenge EDUCATIVO de CTF.
+            // Password Challenge — SHA-256 hash verification (CTF)
+            // NOTA DE SEGURANÇA: Challenge educativo de CTF.
             // A resposta pode ser extraída do código, mas é propósito.
             window.openPasswordChallenge = function() {
                 const panel = DOM.el('#password-challenge-panel');
@@ -817,7 +818,7 @@
                     const hashArray = Array.from(new Uint8Array(hashBuffer));
                     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
                     
-                    // Hash target: SHA-256("Sporting1906")
+                    // Hash target: SHA-256 (challenge CTF)
                     const targetHash = '071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009';
                     
                     if (hashHex === targetHash) {
@@ -853,10 +854,9 @@
                 }
             };
             
-            // RockYou Challenge: SHA-256 de "password123" (o hash mais comum)
+            // RockYou Challenge: SHA-256 hash verification (CTF)
             // NOTA DE SEGURANÇA: Challenge educativo sobre a brecha RockYou (2009).
             // O objetivo é demonstrar que passwords comuns são trivialmente crackáveis.
-            // O hash SHA-256("password123") = ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
             window.submitRockyouChallenge = async function() {
                 const input = DOM.el('#rockyou-input');
                 const errorEl = DOM.el('#rockyou-error');
@@ -884,7 +884,7 @@
                     
                     if (hashHex === targetHash) {
                         errorEl.textContent = '';
-                        successEl.textContent = '🔓 HASH CRACKED! Password: password123 - Lição: Nunca uses passwords comuns!';
+                        successEl.textContent = '🔓 HASH CRACKED! Lição: Nunca uses passwords comuns!';
                         input.value = '';
                     } else {
                         errorEl.textContent = '❌ WRONG HASH - Tenta novamente! Pensa como um utilizador preguiçoso...';
@@ -1088,19 +1088,40 @@
         renderRepos: function(repos, container) {
             if (!repos || repos.length === 0) return;
             
-            // NOTA DE SEGURANÇA: Usamos innerHTML com dados da API GitHub.
-            // O risco de XSS é mínimo porque a API sanitiza description/html_url.
-            // Se quisermos máxima segurança, devemos usar DOM element creation.
-            container.innerHTML = repos.map(repo => `
-                <div class="github-card">
-                    <h4><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h4>
-                    <p>${repo.description || 'No description'}</p>
-                    <div class="repo-stats">
-                        <span>⭐ ${repo.stargazers_count}</span>
-                        <span>🔤 ${repo.language || 'N/A'}</span>
-                    </div>
-                </div>
-            `).join('');
+            container.innerHTML = '';
+            repos.forEach(repo => {
+                const card = document.createElement('div');
+                card.className = 'github-card';
+
+                const name = document.createElement('a');
+                name.href = repo.html_url;
+                name.textContent = repo.name || 'Untitled';
+                name.target = '_blank';
+                name.rel = 'noopener noreferrer';
+
+                const h4 = document.createElement('h4');
+                h4.appendChild(name);
+
+                const desc = document.createElement('p');
+                desc.textContent = repo.description || 'No description';
+
+                const stats = document.createElement('div');
+                stats.className = 'repo-stats';
+
+                const stars = document.createElement('span');
+                stars.textContent = '⭐ ' + (repo.stargazers_count || 0);
+
+                const lang = document.createElement('span');
+                lang.textContent = '🔤 ' + (repo.language || 'N/A');
+
+                stats.appendChild(stars);
+                stats.appendChild(lang);
+
+                card.appendChild(h4);
+                card.appendChild(desc);
+                card.appendChild(stats);
+                container.appendChild(card);
+            });
         }
     };
     
@@ -1125,25 +1146,11 @@
      * ----------------------------------------------------------------------- */
     const SecurityProtection = {
         init: function() {
-            // Bloquear right-click
-            document.addEventListener('contextmenu', (e) => e.preventDefault());
-            
-            // Bloquear select, copy, cut
-            document.addEventListener('selectstart', (e) => e.preventDefault());
-            document.addEventListener('copy', (e) => e.preventDefault());
-            document.addEventListener('cut', (e) => e.preventDefault());
-            
-            // Bloquear atalhos de teclado comuns para inspeção
-            document.addEventListener('keydown', (e) => {
-                // Ctrl+U (ver código), Ctrl+S (guardar), Ctrl+A (select all), Ctrl+P (imprimir)
-                if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'p')) {
-                    e.preventDefault();
-                }
-                // F12 (devtools)
-                if (e.key === 'F12') {
-                    e.preventDefault();
-                }
-                // Ctrl+Shift+I/J/C (devtools)
+            // DISABLED: Client-side protection is easily bypassed (devtools, curl, etc.)
+            // and gives a false sense of security. It also harms accessibility
+            // (prevents legitimate copy, right-click, keyboard shortcuts).
+            // Real security must be server-side. Leaving module for reference.
+            return;
                 if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
                     e.preventDefault();
                 }
@@ -1151,11 +1158,43 @@
         }
     };
     
+     /* -----------------------------------------------------------------------
+      * 12. EmailObfuscation
+      * Protege enderecos de email contra scraping por bots.
+      * Os emails no HTML usam data-user e data-domain em vez de href="mailto:".
+      * Este modulo constroi o link mailto: dinamicamente ao carregar a pagina.
+      *
+      * SEGURANCA: O email nunca aparece no HTML fonte como texto legivel
+      * para spambots. Atributos data-* sao montados client-side.
+      * Para utilizadores sem JS, o texto visivel mostra o email mas
+      * sem link funcional (fallback acessivel via noscript).
+      * ----------------------------------------------------------------------- */
+    var EmailObfuscation = {
+        init: function() {
+            var emails = document.querySelectorAll('.obfuscated-email');
+            for (var i = 0; i < emails.length; i++) {
+                var el = emails[i];
+                var user = el.getAttribute('data-user');
+                var domain = el.getAttribute('data-domain');
+                if (!user || !domain) continue;
+                var email = user + '@' + domain;
+                var anchor = document.createElement('a');
+                anchor.href = 'mailto:' + email;
+                anchor.textContent = email;
+                if (el.getAttribute('aria-label')) {
+                    anchor.setAttribute('aria-label', el.getAttribute('aria-label'));
+                }
+                anchor.rel = 'noopener';
+                el.parentNode.replaceChild(anchor, el);
+            }
+        }
+    };
+    
     /* -----------------------------------------------------------------------
-     * 12. ConsoleMessage
-     * Mensagens decorativas para quem abre o devtools.
-     * Avisa que o site é para fins educativos.
-     * ----------------------------------------------------------------------- */
+      * 13. ConsoleMessage
+      * Mensagens decorativas para quem abre o devtools.
+      * Avisa que o site e para fins educativos.
+      * ----------------------------------------------------------------------- */
     const ConsoleMessage = {
         init: function() {
             console.log('%c🔒 LayerZeppelin Security Portfolio', 'color: #00ff00; font-size: 20px; font-weight: bold;');
@@ -1202,6 +1241,7 @@
         ActionHandlers.init();
         ThemeToggle.init();
         GitHubRepos.init();
+        EmailObfuscation.init();
         SecurityProtection.init();
         ConsoleMessage.init();
     }
