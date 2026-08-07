@@ -126,10 +126,13 @@ const Theme={
   init(){
     const stored=Sec.ls.get(C.themeKey);
     if(stored&&this.THEMES.indexOf(stored)!==-1)this.cur=stored;
-    this.apply();
+    document.documentElement.setAttribute('data-theme',this.cur);
+    Sec.ls.set(C.themeKey,this.cur);
     this.updateMini();
     this.buildPicker();
     CanvasFx.init();
+    CanvasFx.activate(this.cur);
+    this.highlightActive();
   },
 
   apply(){
@@ -233,7 +236,6 @@ const CanvasFx={
       if(!c)return;
       this.canvases[id]=c;
       this.ctx[id]=c.getContext('2d');
-      this.resize(c);
     });
     window.addEventListener('resize',()=>{
       Object.values(this.canvases).forEach(c=>this.resize(c));
@@ -253,14 +255,13 @@ const CanvasFx={
   },
 
   activate(theme){
-    // stop current
     this.stop();
     this.active=theme;
-    const map={
-      t01:'matrix',t02:'tron',t03:'sakura',t08:'biolumi',t09:'vhs',t21:'stars',t27:'aurora'
-    };
+    const map={t01:'matrix',t02:'tron',t03:'sakura',t08:'biolumi',t09:'vhs',t21:'stars',t27:'aurora'};
     const target=map[theme];
     if(!target)return;
+    const c=this.canvases[target];
+    if(c)this.resize(c);
     this.setupTarget(target);
     this.start();
   },
