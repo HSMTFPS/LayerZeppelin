@@ -222,11 +222,12 @@ const Modal={
    ============================================================ */
 const CanvasFx={
   canvases:{},
-  ctx:{}, // ctx['matrix'] etc
-  state:{}, // animation state per canvas
+  ctx:{},
+  state:{},
   rafId:null,
   active:null,
   reduced:false,
+  W:0, H:0,
 
   init(){
     this.reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -237,21 +238,26 @@ const CanvasFx={
       this.canvases[id]=c;
       this.ctx[id]=c.getContext('2d');
     });
-    window.addEventListener('resize',()=>{
-      Object.values(this.canvases).forEach(c=>this.resize(c));
-    });
+    this.W=window.innerWidth;
+    this.H=window.innerHeight;
+    this.resizeAll();
+    window.addEventListener('resize',()=>{this.W=window.innerWidth;this.H=window.innerHeight;this.resizeAll()});
     document.addEventListener('visibilitychange',()=>{
       if(document.hidden)this.stop();
       else if(this.active)this.start();
     });
   },
 
-  resize(c){
+  resizeAll(){
     const dpr=Math.min(window.devicePixelRatio||1,2);
-    c.width=c.clientWidth*dpr;
-    c.height=c.clientHeight*dpr;
-    const ctx=this.ctx[c.id.replace('fx-','')];
-    if(ctx)ctx.setTransform(dpr,0,0,dpr,0,0);
+    Object.keys(this.canvases).forEach(id=>{
+      const c=this.canvases[id];
+      c.width=this.W*dpr;
+      c.height=this.H*dpr;
+      c.style.width=this.W+'px';
+      c.style.height=this.H+'px';
+      if(this.ctx[id])this.ctx[id].setTransform(dpr,0,0,dpr,0,0);
+    });
   },
 
   activate(theme){
@@ -260,8 +266,9 @@ const CanvasFx={
     const map={t01:'matrix',t02:'tron',t03:'sakura',t08:'biolumi',t09:'vhs',t21:'stars',t27:'aurora'};
     const target=map[theme];
     if(!target)return;
-    const c=this.canvases[target];
-    if(c)this.resize(c);
+    this.W=window.innerWidth;
+    this.H=window.innerHeight;
+    this.resizeAll();
     this.setupTarget(target);
     this.start();
   },
@@ -269,8 +276,7 @@ const CanvasFx={
   setupTarget(id){
     const c=this.canvases[id];
     if(!c)return;
-    const ctx=this.ctx[id];
-    const W=()=>c.clientWidth, H=()=>c.clientHeight;
+    const W=()=>this.W, H=()=>this.H;
 
     if(id==='matrix'){
       const cols=Math.floor(W()/14);
@@ -331,7 +337,7 @@ const CanvasFx={
   frame(id){
     const c=this.canvases[id]; if(!c)return;
     const ctx=this.ctx[id]; if(!ctx)return;
-    const W=c.clientWidth, H=c.clientHeight;
+    const W=this.W, H=this.H;
     ctx.clearRect(0,0,W,H);
 
     if(id==='matrix'){
