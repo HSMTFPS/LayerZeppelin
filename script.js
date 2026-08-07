@@ -274,7 +274,7 @@ const CanvasFx={
     if(id==='matrix'){
       const cols=Math.floor(W()/14);
       const drops=Array(cols).fill(0).map(()=>Math.random()*H()/14);
-      this.state.matrix={drops,cols,chars:'01アイウエオカキクケコサシスセソタチツテト$#@!*&%'.split('')};
+      this.state.matrix={drops,cols,chars:'password 123456 qwerty dragon baseball football letmein monkey abc123 mustang shadow master jordan superman hunter trustno1 ranger batman test killer hockey charlie access hello freedom computer thunder summer 123456789 starwars silver chicago yankees arsenal liverpool security admin password1 iloveyou sunshine princess football1 welcome matrix zeppelin'.split(' ')};
     }else if(id==='tron'){
       this.state.tron={t:0};
     }else if(id==='sakura'){
@@ -335,7 +335,7 @@ const CanvasFx={
 
     if(id==='matrix'){
       const st=this.state.matrix;
-      ctx.font='14px monospace';
+      ctx.font='13px monospace';
       for(let i=0;i<st.cols;i++){
         const ch=st.chars[Math.floor(Math.random()*st.chars.length)];
         const x=i*14, y=st.drops[i]*14;
