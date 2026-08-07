@@ -130,8 +130,6 @@ const Theme={
     Sec.ls.set(C.themeKey,this.cur);
     this.updateMini();
     this.buildPicker();
-    CanvasFx.init();
-    CanvasFx.activate(this.cur);
     this.highlightActive();
   },
 
@@ -910,14 +908,18 @@ const EasterEgg={
    BOOT
    ============================================================ */
 function boot(){
+  // Start theme + canvas immediately — don't wait for i18n fetch
+  Theme.init();
+  CanvasFx.init();
+  CanvasFx.activate(Theme.cur);
+  Modal.init();
+  Nav.init();
+  LangBtn.init();
+  EasterEgg.init();
+  Challenges.init();
+  Konami.init();
+  // Load i18n in parallel
   I18N.init().then(()=>{
-    Theme.init();
-    Modal.init();
-    Nav.init();
-    LangBtn.init();
-    EasterEgg.init();
-    Challenges.init();
-    Konami.init();
     renderAll();
   });
 }
