@@ -10,4 +10,4 @@
   Cross-Origin-Resource-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
   X-Permitted-Cross-Domain-Policies: none
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600
