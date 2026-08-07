@@ -485,12 +485,19 @@ function renderSkills(){
     english:'lang',portuguese:'lang',
     pentest:'sec',web:'sec',osint:'sec',network:'sec',
     kali:'os',nethunter:'os',parrot:'os',ubuntu:'os',windows:'os',
-    python:'dev',proxmox:'dev',vmware:'dev',docker:'dev',wsl:'dev',wireguard:'dev',openvpn:'dev',shodan:'tools',
-    burp:'tools',nmap:'tools',metasploit:'tools',wireshark:'tools',john:'tools',hashcat:'tools',gobuster:'tools',nikto:'tools'
+    python:'dev',proxmox:'dev',vmware:'dev',docker:'dev',wsl:'dev',wireguard:'dev',openvpn:'dev',
+    shodan:'tools',burp:'tools',nmap:'tools',metasploit:'tools',wireshark:'tools',john:'tools',hashcat:'tools',gobuster:'tools',nikto:'tools'
+  };
+  const icons={
+    english:'🇬🇧',portuguese:'🇵🇹',
+    pentest:'🔓',web:'🌐',osint:'🔍',network:'📡',
+    kali:'🐉',nethunter:'📱',parrot:'🦜',ubuntu:'🐧',windows:'🪟',
+    python:'🐍',proxmox:'☁️',vmware:'⚙️',docker:'🐳',wsl:'🔧',wireguard:'🔒',openvpn:'🔐',
+    shodan:'🔎',burp:'🕷️',nmap:'📡',metasploit:'🔓',wireshark:'🗡️',john:'🔍',hashcat:'🛡️',gobuster:'🌐',nikto:'📊'
   };
   Object.keys(s.items).forEach(k=>{
     const g=groupMap[k]||'tools';
-    groups[g].push({key:k,...s.items[k]});
+    groups[g].push({key:k,...s.items[k],icon:icons[k]||'🔧'});
   });
   Object.keys(groups).forEach(gKey=>{
     const arr=groups[gKey];
@@ -499,22 +506,28 @@ function renderSkills(){
     const title=ce('div','skills-cat-title');
     title.textContent=s.categories[gKey]||gKey;
     cat.appendChild(title);
+    const grid=ce('div','skills-grid');
     arr.forEach(it=>{
-      const row=ce('div','skill-row');
-      const nm=ce('div','skill-name');
+      const card=ce('div','skill-card');
+      const ico=ce('div','skill-icon');
+      ico.textContent=it.icon;
+      card.appendChild(ico);
+      const nm=ce('h3','skill-name');
       nm.textContent=it.name;
-      row.appendChild(nm);
-      const lvl=ce('div','skill-level');
-      lvl.textContent=it.level+'/20';
-      row.appendChild(lvl);
-      const bar=ce('div','skill-bar-wrap');
-      const fill=ce('div','skill-bar');
-      // delay to allow transition
+      card.appendChild(nm);
+      if(it.desc){
+        const d=ce('p','skill-desc');
+        d.textContent=it.desc;
+        card.appendChild(d);
+      }
+      const bar=ce('div','skill-bar');
+      const fill=ce('div','skill-bar-fill');
       setTimeout(()=>{fill.style.width=(it.level/20*100)+'%'},100);
       bar.appendChild(fill);
-      row.appendChild(bar);
-      cat.appendChild(row);
+      card.appendChild(bar);
+      grid.appendChild(card);
     });
+    cat.appendChild(grid);
     root.appendChild(cat);
   });
 }
