@@ -1,720 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="t01" data-lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LayerZeppelin | Cybersecurity Portfolio - Penetration Testing & Ethical Hacking</title>
-  <meta name="description" content="Hermínio Teles - Cybersecurity professional specializing in penetration testing, web security, and blue team operations. Fluent in English. Certifications: Cinel Cybersecurity.">
-  <meta name="keywords" content="cybersecurity, penetration testing, ethical hacking, security researcher, web security, blue team, red team, CTF, LayerZeppelin, Hermínio Teles, OSCP, CEH">
-  <meta name="author" content="Hermínio Teles">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow">
-  <meta name="theme-color" content="#00ff00">
-  <meta name="msapplication-TileColor" content="#0a0a0a">
-  <meta property="og:title" content="LayerZeppelin | Cybersecurity Portfolio">
-  <meta property="og:description" content="Red Team &amp; Blue Team cybersecurity professional. Penetration testing, web security, system hardening. Fluent in English.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://layerzeppelin.pt">
-  <meta property="og:image" content="https://layerzeppelin.pt/images/profile.jpg">
-  <meta property="og:image:alt" content="Hermínio Teles - LayerZeppelin">
-  <meta property="og:site_name" content="LayerZeppelin">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LayerZeppelin | Cybersecurity Portfolio">
-  <meta name="twitter:description" content="Red Team &amp; Blue Team cybersecurity professional. Penetration testing, web security, system hardening.">
-  <meta name="twitter:image" content="https://layerzeppelin.pt/images/profile.jpg">
-  <meta name="twitter:creator" content="@layerzeppelin">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="canonical" href="https://layerzeppelin.pt/">
-  <link rel="alternate" hreflang="en" href="https://layerzeppelin.pt/">
-  <link rel="alternate" hreflang="pt" href="https://layerzeppelin.pt/">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="manifest" href="manifest.json">
-  <script data-goatcounter="https://layerzeppelin.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-  <script>
-    if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-      location.replace('https:' + location.href.substring(5));
-    }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Hermínio Teles",
-    "alternateName": "LayerZeppelin",
-    "url": "https://layerzeppelin.pt",
-    "image": "https://layerzeppelin.pt/images/profile.jpg",
-    "jobTitle": "Cybersecurity Professional",
-    "description": "Red Team & Blue Team security professional specializing in penetration testing, web security, and system hardening.",
-    "knowsAbout": ["Penetration Testing", "Web Security", "Ethical Hacking", "CTF", "Security Research", "System Hardening", "Blue Team"],
-    "sameAs": [
-      "https://github.com/HSMTFPS",
-      "https://www.linkedin.com/in/herm%C3%ADnio-teles-6826b8358/",
-      "https://tryhackme.com/p/HSMTFPS",
-      "https://app.hackthebox.com/profile/HSMTFPS"
-    ],
-    "alumniOf": {
-      "@type": "Organization",
-      "name": "Cinel"
-    },
-    "nationality": "Portuguese"
-  }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Hermínio Teles">
+<meta name="description" data-i18n="meta.description" content="LayerZeppelin — 27 themes portfolio">
+<meta name="theme-color" content="#000000">
+<title data-i18n="meta.title">LayerZeppelin | Portfolio</title>
+<link rel="icon" type="image/png" href="./assets/images/logo.png">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="apple-touch-icon" href="./assets/images/logo.png">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./themes-2.css">
+<link rel="stylesheet" href="./themes-3.css">
+<link rel="stylesheet" href="./themes-4.css">
+<script>
+(function(){
+  try{
+    var t=localStorage.getItem('lz-theme');
+    if(t){document.documentElement.setAttribute('data-theme',t);}
+    var l=localStorage.getItem('lz-lang');
+    if(l==='pt'||l==='en'){document.documentElement.setAttribute('data-lang',l);}
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
-  <canvas id="matrix-bg" aria-hidden="true"></canvas>
-  <div class="scanline" aria-hidden="true"></div>
-  
-  <nav class="navbar" role="navigation" aria-label="Navegação principal">
-    <div class="nav-brand">
-      <a href="#home" aria-label="LayerZeppelin - Início">
-        <img src="images/logo.png" alt="LayerZeppelin Logo" class="nav-logo" loading="lazy">
-        <span>&lt;LayerZeppelin/&gt;</span>
-      </a>
+
+<a href="#main" class="skip-link" data-i18n="ui.skipToContent">Skip to content</a>
+
+<!-- Theme-specific background canvases (one per theme) -->
+<div class="bg-fx" aria-hidden="true">
+  <canvas id="fx-matrix" data-fx="t01"></canvas>
+  <canvas id="fx-tron" data-fx="t02"></canvas>
+  <canvas id="fx-sakura" data-fx="t03"></canvas>
+  <canvas id="fx-aurora" data-fx="t27"></canvas>
+  <canvas id="fx-biolumi" data-fx="t08"></canvas>
+  <canvas id="fx-stars" data-fx="t21"></canvas>
+  <canvas id="fx-vhs" data-fx="t09"></canvas>
+</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#home" class="brand" aria-label="LayerZeppelin — Home">
+      <img src="./assets/images/logo.png" alt="LayerZeppelin logo" class="brand-logo">
+      <span class="brand-name" data-i18n="hero.name">LayerZeppelin</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#certs" data-i18n="nav.certs">Certs</a></li>
+        <li><a href="#ctf" data-i18n="nav.ctf">CTF</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#writeups" data-i18n="nav.writeups">Writeups</a></li>
+        <li><a href="#tools" data-i18n="nav.tools">Tools</a></li>
+        <li><a href="#journey" data-i18n="nav.journey">Journey</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <button class="btn-theme-pick" id="theme-pick-btn" aria-haspopup="dialog" aria-controls="theme-modal" data-i18n-attr="aria-label:ui.chooseTheme" aria-label="Choose theme">
+        <span class="theme-glyph" aria-hidden="true">◐</span>
+        <span class="theme-name-mini" data-theme-mini>t01</span>
+      </button>
+      <button class="btn-lang" id="lang-btn" aria-label="Language">
+        <span data-lang-label>EN</span>
+      </button>
     </div>
-    <button class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-links-menu">
-      <span class="hamburger"></span>
-      <span class="hamburger"></span>
-      <span class="hamburger"></span>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-list">
+      <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="nav-links-menu" role="menubar">
-      <li role="none"><a href="#about" role="menuitem">Sobre</a></li>
-      <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
-      <li role="none"><a href="#certifications" role="menuitem">Certs</a></li>
-      <li role="none"><a href="#ctf" role="menuitem">CTF</a></li>
-      <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
-      <li role="none"><a href="#contact" role="menuitem">Contacto</a></li>
-    </ul>
-  </nav>
+  </div>
+</header>
 
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <div class="terminal-header">
-        <span class="dot red" aria-hidden="true"></span>
-        <span class="dot yellow" aria-hidden="true"></span>
-        <span class="dot green" aria-hidden="true"></span>
-        <span class="terminal-title">root@layerzeppelin:~</span>
-      </div>
-      <div class="terminal-body">
-        <p class="typed-text"><span class="prompt" aria-hidden="true">$</span> whoami</p>
-        <h1 class="glitch" data-text="LayerZeppelin">LayerZeppelin</h1>
-        <p class="subtitle">Aspiring Cybersecurity Professional | Learning & Building</p>
-        <p class="typed-text"><span class="prompt" aria-hidden="true">$</span> cat specializations.txt</p>
-        <p class="output">CTF Competitions | Web Security | Password Cracking | Certifications Path</p>
-        <p class="typed-text" aria-hidden="true"><span class="prompt">$</span> echo "Our democracy has been hacked." # fsociety</p>
-      </div>
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-shell">
+    <div class="hero-prompt" aria-hidden="true">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="hero-title-mini">root@layerzeppelin:~</span>
     </div>
-  </header>
-
-  <main>
-    <section class="section" id="about" aria-labelledby="about-title">
-      <h2 class="section-title" id="about-title"><span class="hash" aria-hidden="true">#</span> About</h2>
-      <div class="about-content">
-        <div class="profile-image">
-          <img src="images/profile.jpg" alt="LayerZeppelin Profile Photo" loading="lazy" width="250" height="250">
-        </div>
-        <div class="about-text">
-          <p>Passionate about cybersecurity with hands-on experience in penetration testing and a growing interest in blue team operations and system hardening. Every day is an opportunity to learn something new in this ever-evolving field.</p>
-          <p class="highlight">Currently seeking internship opportunities in cybersecurity. Fluent in English (written & spoken).</p>
-          <ul class="about-list">
-            <li><span class="bullet" aria-hidden="true">&gt;</span> Red Team: Penetration Testing & Vulnerability Assessment</li>
-            <li><span class="bullet" aria-hidden="true">&gt;</span> Blue Team: System Hardening & Defensive Security</li>
-            <li><span class="bullet" aria-hidden="true">&gt;</span> Web Application Security & Password Cracking</li>
-            <li><span class="bullet" aria-hidden="true">&gt;</span> CTF Competitions & Continuous Learning</li>
-          </ul>
-        </div>
+    <div class="hero-body">
+      <p class="hero-greeting" data-i18n="hero.greeting">Hello, I'm</p>
+      <h1 class="hero-name" data-i18n="hero.name">LayerZeppelin</h1>
+      <p class="hero-role" data-i18n="hero.role">Cybersecurity Enthusiast</p>
+      <p class="hero-tagline" data-i18n="hero.tagline">Red Team · Blue Team · CTF Player</p>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Aspiring cybersecurity professional</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Explore Work</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Get in Touch</a>
       </div>
-    </section>
-    
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <h2 class="section-title" id="skills-title"><span class="hash" aria-hidden="true">#</span> Skills</h2>
-      
-      <h3 class="subsection-title">Languages</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card skill-completed" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🇬🇧</div>
-          <h3>English</h3>
-          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem;">Fluent (C1) — Written & Spoken</p>
-          <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="English - Fluent"><div class="skill-progress" style="--progress: 90%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🇵🇹</div>
-          <h3>Portuguese</h3>
-          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem;">Native</p>
-          <div class="skill-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Portuguese - Native"><div class="skill-progress" style="--progress: 100%"></div></div>
-        </div>
-      </div>
-      
-      <h3 class="subsection-title">Security & Testing</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔓</div>
-          <h3>Penetration Testing</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Penetration Testing - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🌐</div>
-          <h3>Web Security</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="Web Security - 15%"><div class="skill-progress" style="--progress: 15%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔍</div>
-          <h3>OSINT / Recon</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="OSINT - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📡</div>
-          <h3>Network Security</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Network Security - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-      </div>
-      
-      <h3 class="subsection-title">Operating Systems</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐉</div>
-          <h3>Kali Linux</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Linux - 18%"><div class="skill-progress" style="--progress: 18%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📱</div>
-          <h3>Kali Nethunter</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Kali Nethunter - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🦜</div>
-          <h3>Parrot OS</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Parrot OS - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐧</div>
-          <h3>Ubuntu / Server</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="Ubuntu Server - 15%"><div class="skill-progress" style="--progress: 15%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🪟</div>
-          <h3>Windows Server</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Windows Server - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-      </div>
-      
-      <h3 class="subsection-title">Development & Tools</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐍</div>
-          <h3>Python / Scripting</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Python - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">☁️</div>
-          <h3>Proxmox VE</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Proxmox VE - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">⚙️</div>
-          <h3>VMware</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="VMware - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🐳</div>
-          <h3>Docker</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Docker - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔧</div>
-          <h3>WSL</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" aria-label="WSL - 18%"><div class="skill-progress" style="--progress: 18%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔒</div>
-          <h3>WireGuard</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="WireGuard - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔐</div>
-          <h3>OpenVPN</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="OpenVPN - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-      </div>
-      
-      <h3 class="subsection-title">Security Tools</h3>
-      <div class="skills-grid" role="list">
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔎</div>
-          <h3>Shodan</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Shodan - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🕷️</div>
-          <h3>Burp Suite CE</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Burp Suite - 12%"><div class="skill-progress" style="--progress: 12%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📡</div>
-          <h3>Nmap</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-label="Nmap - 15%"><div class="skill-progress" style="--progress: 15%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔓</div>
-          <h3>Metasploit</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Metasploit - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🗡️</div>
-          <h3>Wireshark</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Wireshark - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🔍</div>
-          <h3>John the Ripper</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="John the Ripper - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🛡️</div>
-          <h3>Hashcat</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" aria-label="Hashcat - 8%"><div class="skill-progress" style="--progress: 8%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">🌐</div>
-          <h3>Gobuster / Dirb</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Gobuster - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-        <div class="skill-card" role="listitem">
-          <div class="skill-icon" aria-hidden="true">📊</div>
-          <h3>Nikto</h3>
-          <div class="skill-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" aria-label="Nikto - 10%"><div class="skill-progress" style="--progress: 10%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="certifications" aria-labelledby="certs-title">
-      <h2 class="section-title" id="certs-title"><span class="hash" aria-hidden="true">#</span> Certifications</h2>
-      <div class="cert-grid" role="list">
-        <div class="cert-card cert-completed" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🎓</div>
-          <h3>Cinel Cybersecurity</h3>
-          <p class="cert-issuer">Cinel - Nível Iniciante</p>
-          <span class="cert-status completed">Completed</span>
-          <a href="certs/cinel-iniciante.png" class="cert-link" target="_blank" rel="noopener">📄 View Certificate</a>
-        </div>
-        <div class="cert-card cert-completed" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🎓</div>
-          <h3>Cinel Cybersecurity</h3>
-          <p class="cert-issuer">Cinel - Nível Avançado</p>
-          <span class="cert-status completed">Completed</span>
-          <a href="certs/cinel-avancado.png" class="cert-link" target="_blank" rel="noopener">📄 View Certificate</a>
-        </div>
-        <div class="cert-card cert-completed" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🛡️</div>
-          <h3>BIG School - Ciberseguridad y Hacking Ético</h3>
-          <p class="cert-issuer">Técnicas de detección de vulnerabilidades y defensa digital</p>
-          <span class="cert-status completed">Completed</span>
-          <a href="certs/big-school.png" class="cert-link" target="_blank" rel="noopener">📄 View Certificate</a>
-        </div>
-        <div class="cert-card" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🎓</div>
-          <h3>Cinel Cybersecurity</h3>
-          <p class="cert-issuer">Cinel - Nível Expert</p>
-          <span class="cert-status">In Progress</span>
-        </div>
-        <div class="cert-card" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🔐</div>
-          <h3>Cisco Ethical Hacker</h3>
-          <p class="cert-issuer">Cisco Networking Academy</p>
-          <span class="cert-status">In Progress</span>
-        </div>
-        <div class="cert-card" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🎯</div>
-          <h3>TryHackMe</h3>
-          <p class="cert-issuer">Various Learning Paths</p>
-          <span class="cert-status">In Progress</span>
-        </div>
-        <div class="cert-card" role="listitem">
-          <div class="cert-icon" aria-hidden="true">📦</div>
-          <h3>HackTheBox Academy</h3>
-          <p class="cert-issuer">HTB Certifications</p>
-          <span class="cert-status">In Progress</span>
-        </div>
-        <div class="cert-card" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🕷️</div>
-          <h3>PortSwigger</h3>
-          <p class="cert-issuer">Web Security Academy</p>
-          <span class="cert-status">In Progress</span>
-        </div>
-        <div class="cert-card" role="listitem">
-          <div class="cert-icon" aria-hidden="true">🏆</div>
-          <h3>eLearnSecurity</h3>
-          <p class="cert-issuer">INE Security</p>
-          <span class="cert-status">Planned</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ctf" aria-labelledby="ctf-title">
-      <h2 class="section-title" id="ctf-title"><span class="hash" aria-hidden="true">#</span> CTF & Labs</h2>
-      <div class="ctf-grid" role="list">
-        <a href="https://tryhackme.com/p/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil TryHackMe">
-          <div class="ctf-logo" aria-hidden="true">🎯</div>
-          <h3>TryHackMe</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">Ver Perfil</span>
-        </a>
-        <a href="https://app.hackthebox.com/profile/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil HackTheBox">
-          <div class="ctf-logo" aria-hidden="true">📦</div>
-          <h3>HackTheBox</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">Ver Perfil</span>
-        </a>
-        <a href="https://labex.io/u/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil LabEx">
-          <div class="ctf-logo" aria-hidden="true">🧪</div>
-          <h3>LabEx.io</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">Ver Perfil</span>
-        </a>
-        <a href="https://picoctf.com/users/HSMTFPS" target="_blank" rel="noopener noreferrer" class="ctf-card" role="listitem" aria-label="Ver perfil PicoCTF">
-          <div class="ctf-logo" aria-hidden="true">🔐</div>
-          <h3>PicoCTF</h3>
-          <p>@HSMTFPS</p>
-          <span class="ctf-badge">Ver Perfil</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <h2 class="section-title" id="projects-title"><span class="hash" aria-hidden="true">#</span> Projects</h2>
-      <div class="projects-grid" role="list">
-        <article class="project-card" role="listitem">
-          <div class="project-image">
-            <img src="images/project-final.png" alt="LayerZeppelin.pt Portfolio" loading="lazy" width="600" height="400">
-          </div>
-          <div class="project-header">
-            <span class="project-icon" aria-hidden="true">🌐</span>
-            <h3>LayerZeppelin.pt</h3>
-          </div>
-          <p>Personal cybersecurity portfolio with terminal aesthetics, Matrix background animation, and modern dark theme. GDPR compliant with cookie consent.</p>
-          <div class="project-tags">
-            <span class="tag">HTML/CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Security</span>
-          </div>
-          <div class="project-links">
-            <a href="https://layerzeppelin.pt" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo →</a>
-            <a href="https://github.com/HSMTFPS/LayerZeppelin" class="project-link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-          </div>
-        </article>
-        
-        <article class="project-card" role="listitem">
-          <div class="project-icon-large" aria-hidden="true">🔐</div>
-          <div class="project-header">
-            <span class="project-icon" aria-hidden="true">📦</span>
-            <h3>Password Challenges</h3>
-          </div>
-          <p>Interactive password cracking challenges embedded in the portfolio. Includes SHA-256 hash cracking exercises with educational feedback.</p>
-          <div class="project-tags">
-            <span class="tag">Cryptography</span>
-            <span class="tag">Education</span>
-            <span class="tag">JS</span>
-          </div>
-          <div class="project-links">
-            <a href="#contact" class="project-link" data-action="open-rockyou">Try Challenge →</a>
-          </div>
-        </article>
-        
-        <article class="project-card" role="listitem">
-          <div class="project-icon-large" aria-hidden="true">🎮</div>
-          <div class="project-header">
-            <span class="project-icon" aria-hidden="true">🎯</span>
-            <h3>CTF Writeups</h3>
-          </div>
-          <p>Capture The Flag competition writeups and solutions. Documenting challenges from TryHackMe, HackTheBox, and other platforms.</p>
-          <div class="project-tags">
-            <span class="tag">CTF</span>
-            <span class="tag">Writeups</span>
-            <span class="tag">Learning</span>
-          </div>
-          <div class="project-links">
-            <a href="#writeups" class="project-link">View Writeups →</a>
-          </div>
-        </article>
-      </div>
-      
-      <div id="github-projects" class="github-section">
-        <h3 class="subsection-title">📦 Latest GitHub Repos</h3>
-        <div class="github-grid" id="github-repos"></div>
-        <p class="github-loading" id="github-loading">Loading repositories...</p>
-      </div>
-    </section>
-    
-    <section class="section" id="writeups" aria-labelledby="writeups-title">
-      <h2 class="section-title" id="writeups-title"><span class="hash" aria-hidden="true">#</span> Writeups</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 2rem;">CTF challenges and security concepts explained. Coming soon with detailed walkthroughs.</p>
-      <div class="writeups-placeholder">
-        <div class="writeup-card coming-soon">
-          <div class="writeup-icon">📝</div>
-          <h3>Writeups Coming Soon</h3>
-          <p>Documenting my CTF journey and security research.</p>
-        </div>
-        <div class="writeup-card coming-soon">
-          <div class="writeup-icon">🔍</div>
-          <h3>THM Walkthroughs</h3>
-          <p>TryHackMe room solutions and techniques.</p>
-        </div>
-        <div class="writeup-card coming-soon">
-          <div class="writeup-icon">🏗️</div>
-          <h3>HTB Machines</h3>
-          <p>HackTheBox machine writeups.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section class="section" id="tools" aria-labelledby="tools-title">
-      <h2 class="section-title" id="tools-title"><span class="hash" aria-hidden="true">#</span> Tools Arsenal</h2>
-      <div class="tools-grid">
-        <div class="tool-category">
-          <h3 class="subsection-title">🔍 Reconnaissance</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Nmap</span>
-            <span class="tool-tag">Shodan</span>
-            <span class="tool-tag">theHarvester</span>
-            <span class="tool-tag">Amass</span>
-            <span class="tool-tag">Subfinder</span>
-          </div>
-        </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🕷️ Web Testing</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Burp Suite</span>
-            <span class="tool-tag">OWASP ZAP</span>
-            <span class="tool-tag">Gobuster</span>
-            <span class="tool-tag">Nikto</span>
-            <span class="tool-tag">ffuf</span>
-          </div>
-        </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🔓 Exploitation</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Metasploit</span>
-            <span class="tool-tag">SQLmap</span>
-            <span class="tool-tag"> Hydra</span>
-            <span class="tool-tag">ExploitDB</span>
-          </div>
-        </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🔑 Password Cracking</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Hashcat</span>
-            <span class="tool-tag">John the Ripper</span>
-            <span class="tool-tag">CrackStation</span>
-          </div>
-        </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">📡 Network Analysis</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Wireshark</span>
-            <span class="tool-tag">tcpdump</span>
-            <span class="tool-tag">Networkminer</span>
-          </div>
-        </div>
-        <div class="tool-category">
-          <h3 class="subsection-title">🐧 Operating Systems</h3>
-          <div class="tools-list">
-            <span class="tool-tag">Kali Linux</span>
-            <span class="tool-tag">Parrot OS</span>
-            <span class="tool-tag">Ubuntu Server</span>
-            <span class="tool-tag">Windows Server</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="section" id="certifications-timeline" aria-labelledby="timeline-title">
-      <h2 class="section-title" id="timeline-title"><span class="hash" aria-hidden="true">#</span> Certification Journey</h2>
-      <div class="timeline">
-        <div class="timeline-item completed">
-          <div class="timeline-marker">✓</div>
-          <div class="timeline-content">
-            <h4>Cinel Cybersecurity - Beginner</h4>
-            <p class="timeline-date">Completed</p>
-            <p class="timeline-desc">Fundamentals of cybersecurity, networking basics, and security concepts.</p>
-          </div>
-        </div>
-        <div class="timeline-item completed">
-          <div class="timeline-marker">✓</div>
-          <div class="timeline-content">
-            <h4>Cinel Cybersecurity - Advanced</h4>
-            <p class="timeline-date">Completed</p>
-            <p class="timeline-desc">Advanced security techniques, penetration testing methodologies, and incident response.</p>
-          </div>
-        </div>
-        <div class="timeline-item in-progress">
-          <div class="timeline-marker">→</div>
-          <div class="timeline-content">
-            <h4>Cinel Cybersecurity - Expert</h4>
-            <p class="timeline-date">In Progress</p>
-            <p class="timeline-desc">Expert-level security operations, advanced threat hunting, and security architecture.</p>
-          </div>
-        </div>
-        <div class="timeline-item in-progress">
-          <div class="timeline-marker">→</div>
-          <div class="timeline-content">
-            <h4>Cisco Ethical Hacker</h4>
-            <p class="timeline-date">In Progress</p>
-            <p class="timeline-desc">Ethical hacking methodologies, penetration testing, and vulnerability assessment.</p>
-          </div>
-        </div>
-        <div class="timeline-item planned">
-          <div class="timeline-marker">○</div>
-          <div class="timeline-content">
-            <h4>eLearnSecurity / OSCP</h4>
-            <p class="timeline-date">Planned</p>
-            <p class="timeline-desc">Advanced penetration testing certification and offensive security.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <h2 class="section-title" id="contact-title"><span class="hash" aria-hidden="true">#</span> Contact</h2>
-      <div class="contact-content">
-        <div class="terminal-box">
-          <div class="terminal-header">
-            <span class="dot red" aria-hidden="true"></span>
-            <span class="dot yellow" aria-hidden="true"></span>
-            <span class="dot green" aria-hidden="true"></span>
-            <span class="terminal-title">contact@layerzeppelin:~</span>
-            <button class="theme-toggle" data-action="toggle-theme" aria-label="Toggle theme" title="Toggle light/dark mode">
-              <span class="theme-icon">🌙</span>
-            </button>
-          </div>
-          <div class="terminal-body contact-terminal">
-            <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL</p>
-            <p class="output"><a href="mailto:contact@layerzeppelin.pt" aria-label="Enviar email para contact@layerzeppelin.pt">contact@layerzeppelin.pt</a></p>
-            <p><span class="prompt" aria-hidden="true">$</span> echo $EMAIL_ALT</p>
-            <p class="output"><a href="mailto:hsmtfps@gmail.com" aria-label="Enviar email para hsmtfps@gmail.com">hsmtfps@gmail.com</a></p>
-            <p><span class="prompt" aria-hidden="true">$</span> echo $GITHUB</p>
-            <p class="output"><a href="https://github.com/HSMTFPS" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil GitHub">github.com/HSMTFPS</a></p>
-            <p><span class="prompt" aria-hidden="true">$</span> echo $LINKEDIN</p>
-            <p class="output"><a href="https://www.linkedin.com/in/herm%C3%ADnio-teles-6826b8358/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil LinkedIn">linkedin.com/in/hermínio-teles</a></p>
-            <p aria-hidden="true"><span class="prompt">$</span> _</p>
-          </div>
-        </div>
-        
-        <noscript>
-          <p class="contact-note">JavaScript is required for email display.</p>
-          <p class="contact-email-obfuscated">Email: c0ntact [at] layerzeppelin [dot] pt</p>
-        </noscript>
-        
-        <p class="contact-honeypot" style="display:none;">
-          <label for="website">Website:</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2026 LayerZeppelin | Hermínio Teles | Security Score: <span class="score" tabindex="0" role="button" aria-label="Security Score: 92 out of 100">92/100</span></p>
-      <p class="footer-note">// Built with security in mind</p>
-      <p class="easter-egg-hint" data-action="show-easter" tabindex="0" role="button" aria-label="Pressione para ver hardware arsenal">[Press ++ for hardware secrets]</p>
-      <p class="secret-code-hint" data-action="open-secret" tabindex="0" role="button" aria-label="Pressione para introduzir código secreto">[Access Terminal? Enter Code: #__]</p>
-      <p class="easter-egg-hint" style="margin-top: 5px; opacity: 0.2;" data-action="open-rockyou" tabindex="0" role="button" aria-label="Pressione para abrir desafio RockYou">[💀 RockYou Challenge - Crack the Hash]</p>
-    </div>
-    <div class="footer-legal">
-      <a href="privacy.html">Privacidade</a>
-      <span aria-hidden="true">|</span>
-      <a href="terms.html">Termos</a>
-      <span aria-hidden="true">|</span>
-      <a href="cookies.html">Cookies</a>
-      <span aria-hidden="true">|</span>
-      <button class="cookie-settings-btn" data-action="cookie-prefs" style="background:none;border:none;color:var(--accent);cursor:pointer;font-family:inherit;font-size:0.85rem;">Preferências de Cookies</button>
-    </div>
-    <p class="footer-disclaimer">Este site é um portefólio pessoal com fins de demonstração de competências em cibersegurança. Não presta serviços profissionais (de momento). Em construção constante 🚧</p>
-  </footer>
-  
-  <div id="password-challenge-panel" class="secret-code-panel" role="dialog" aria-labelledby="password-challenge-title" aria-modal="true">
-    <div class="secret-code-content">
-      <h3 id="password-challenge-title">🔐 PASSWORD CHALLENGE</h3>
-      <p class="challenge-intro">A special challenge for those who dare...</p>
-      <div class="hash-box">
-        <p class="hash-label">Crack this SHA-256 hash:</p>
-        <code class="hash-value">071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009</code>
-        <p class="hash-hint">💡 Hint: No password is stronger than... [football club founded 1906]</p>
-      </div>
-      <label for="password-input" class="visually-hidden">Password</label>
-      <input type="text" id="password-input" placeholder="Enter password..." autocomplete="off" aria-describedby="password-error">
-      <button data-action="submit-password">CRACK IT</button>
-      <p class="error-msg" id="password-error" role="alert" aria-live="polite"></p>
-      <p class="success-msg" id="password-success" role="alert" aria-live="polite"></p>
     </div>
   </div>
-  
-  <div id="secret-code-panel" class="secret-code-panel" role="dialog" aria-labelledby="secret-code-title" aria-modal="true">
-    <div class="secret-code-content">
-      <h3 id="secret-code-title">ACCESS TERMINAL</h3>
-      <p>Enter authorization code:</p>
-      <label for="secret-code-input" class="visually-hidden">Código de autorização</label>
-      <input type="text" id="secret-code-input" placeholder="#__" maxlength="4" autocomplete="off" inputmode="numeric" aria-describedby="secret-error">
-      <button data-action="submit-secret">AUTHENTICATE</button>
-      <p class="error-msg" id="secret-error" role="alert" aria-live="polite"></p>
-    </div>
-  </div>
-  
-  <div id="rockyou-panel" class="secret-code-panel" role="dialog" aria-labelledby="rockyou-title" aria-modal="true">
-    <div class="secret-code-content" style="max-width: 600px;">
-      <h3 id="rockyou-title">💀 ROCKYOU CHALLENGE</h3>
-      <p class="challenge-intro">From the famous rockyou.txt leak...</p>
-      <div class="hash-box">
-        <p class="hash-label">Crack this SHA-256 hash:</p>
-        <code class="hash-value">ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</code>
-        <p class="hash-hint">💡 Hint: The most common password in rockyou.txt... followed by numbers!</p>
-        <p class="hash-hint" style="font-size: 0.7rem; opacity: 0.7;">Format: [word][numbers]</p>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="about.title">About</span>
+      <h2 class="sec-title" data-i18n="about.heading">Building secure systems</h2>
+    </header>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="./assets/images/profile.jpg" alt="LayerZeppelin" width="280" height="280" loading="lazy">
+        <div class="photo-frame" aria-hidden="true"></div>
       </div>
-      <label for="rockyou-input" class="visually-hidden">Password</label>
-      <input type="text" id="rockyou-input" placeholder="Enter password..." autocomplete="off" aria-describedby="rockyou-error">
-      <button data-action="submit-rockyou">CRACK IT</button>
-      <p class="error-msg" id="rockyou-error" role="alert" aria-live="polite"></p>
-      <p class="success-msg" id="rockyou-success" role="alert" aria-live="polite"></p>
-      
-      <div class="rockyou-info" style="margin-top: 1.5rem; border-top: 1px solid #333; padding-top: 1rem;">
-        <h4 style="color: #ff5f56; font-size: 0.9rem; margin-bottom: 0.5rem;">📚 About rockyou.txt</h4>
-        <p style="color: #888; font-size: 0.75rem; line-height: 1.5; text-align: left;">
-          • <strong style="color:#fff">2009:</strong> RockYou breach exposed <strong style="color:#0f0">14.3 million</strong> passwords<br>
-          • <strong style="color:#fff">Time to crack:</strong> This hash would take <strong style="color:#f00">&lt; 1 second</strong> with GPU brute force<br>
-          • <strong style="color:#fff">Top passwords:</strong> password123, 123456, qwerty, iloveyou<br>
-          • <strong style="color:#fff">Lesson:</strong> Never use dictionary words or common patterns!
-        </p>
-        
-        <h4 style="color: #27c93f; font-size: 0.9rem; margin: 1rem 0 0.5rem;">🔐 How to Create a STRONG Password</h4>
-        <ul style="color: #888; font-size: 0.75rem; line-height: 1.6; text-align: left; padding-left: 1.5rem;">
-          <li>✓ Minimum <strong style="color:#fff">16+ characters</strong></li>
-          <li>✓ Mix: <strong style="color:#fff">UPPER + lower + numbers + symbols</strong></li>
-          <li>✓ Use <strong style="color:#fff">passphrases</strong>: "Correct-Horse-Battery-Staple"</li>
-          <li>✓ Use a <strong style="color:#fff">password manager</strong> (Bitwarden, 1Password)</li>
-          <li>✓ Enable <strong style="color:#fff">2FA/MFA</strong> everywhere possible</li>
-          <li>✗ Avoid: dictionary words, birthdates, names, sequences</li>
-          <li>✗ Never reuse passwords across sites!</li>
+      <div class="about-text">
+        <p data-i18n="about.bio1">Bio...</p>
+        <p class="about-highlight" data-i18n="about.bio2">Highlight</p>
+        <ul class="about-list">
+          <li data-i18n="about.highlights.0">Red Team</li>
+          <li data-i18n="about.highlights.1">Blue Team</li>
+          <li data-i18n="about.highlights.2">Web Security</li>
+          <li data-i18n="about.highlights.3">CTF</li>
         </ul>
       </div>
     </div>
   </div>
-  
-  <div id="room27-panel" class="room27-panel" role="dialog" aria-labelledby="room27-title" aria-modal="true">
-    <div class="room27-content">
-      <button class="close-easter" data-action="close-room27" aria-label="Fechar">&times;</button>
-      <div class="room27-header">
-        <span class="room27-status">ROOM 27 - ACTIVE</span>
-        <h2 id="room27-title">CTF Challenge Terminal</h2>
-      </div>
-      <div class="room27-terminal">
-        <div class="room27-ascii">
+</section>
+
+<!-- SKILLS -->
+<section class="sec" id="skills">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="skills.title">Skills</span>
+      <h2 class="sec-title" data-i18n="skills.subtitle">Tech I work with</h2>
+    </header>
+    <div class="skills-render" id="skills-render"></div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="sec" id="certs">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="certs.title">Certifications</span>
+      <h2 class="sec-title" data-i18n="certs.subtitle">Subtitle</h2>
+    </header>
+    <div class="certs-render" id="certs-render"></div>
+  </div>
+</section>
+
+<!-- CTF -->
+<section class="sec" id="ctf">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="ctf.title">CTF & Labs</span>
+      <h2 class="sec-title" data-i18n="ctf.subtitle">CTF Subtitle</h2>
+    </header>
+    <div class="ctf-render" id="ctf-render"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="projects.title">Projects</span>
+      <h2 class="sec-title" data-i18n="projects.subtitle">Selected work</h2>
+    </header>
+    <div class="projects-render" id="projects-render"></div>
+  </div>
+</section>
+
+<!-- WRITEUPS -->
+<section class="sec" id="writeups">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="writeups.title">Writeups</span>
+      <h2 class="sec-title" data-i18n="writeups.subtitle">Writeups subtitle</h2>
+    </header>
+    <div class="writeups-render" id="writeups-render"></div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="sec" id="tools">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="tools.title">Tools Arsenal</span>
+      <h2 class="sec-title" data-i18n="tools.subtitle">My toolbox</h2>
+    </header>
+    <div class="tools-render" id="tools-render"></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="sec" id="journey">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="journey.title">Certification Journey</span>
+      <h2 class="sec-title" data-i18n="journey.subtitle">Step by step</h2>
+    </header>
+    <div class="journey-render" id="journey-render"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="container">
+    <header class="sec-head">
+      <span class="sec-eyebrow" data-i18n="contact.title">Contact</span>
+      <h2 class="sec-title" data-i18n="contact.subtitle">Let's build something secure</h2>
+    </header>
+    <p class="contact-desc" data-i18n="contact.description">Description</p>
+    <div class="contact-render" id="contact-render"></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p data-i18n="footer.copyright">© 2026 LayerZeppelin</p>
+    <p class="footer-note" data-i18n="footer.built">Built with security in mind</p>
+    <p class="easter-egg-hint" data-action="open-easter" tabindex="0" role="button" aria-label="Hardware arsenal">[Press for hardware secrets]</p>
+    <p class="easter-egg-hint" data-action="open-secret" tabindex="0" role="button" aria-label="Access terminal">[Access Terminal? Enter Code: #__]</p>
+    <p class="easter-egg-hint" data-action="open-rockyou" tabindex="0" role="button" aria-label="RockYou challenge">[💀 RockYou Challenge - Crack the Hash]</p>
+    <p class="easter-egg-hint" data-action="open-password" tabindex="0" role="button" aria-label="Password challenge">[🔐 Password Challenge]</p>
+  </div>
+</footer>
+
+<!-- PASSWORD CHALLENGE PANEL -->
+<div id="password-challenge-panel" class="secret-code-panel" role="dialog" aria-labelledby="password-challenge-title" aria-modal="true" hidden>
+  <div class="secret-code-content">
+    <button class="close-easter" data-action="close-password" aria-label="Fechar">&times;</button>
+    <h3 id="password-challenge-title">🔐 PASSWORD CHALLENGE</h3>
+    <p class="challenge-intro">A special challenge for those who dare...</p>
+    <div class="hash-box">
+      <p class="hash-label">Crack this SHA-256 hash:</p>
+      <code class="hash-value">071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009</code>
+      <p class="hash-hint">💡 Hint: No password is stronger than... [football club founded 1906]</p>
+    </div>
+    <label for="password-input" class="visually-hidden">Password</label>
+    <input type="text" id="password-input" placeholder="Enter password..." autocomplete="off" aria-describedby="password-error">
+    <button data-action="submit-password">CRACK IT</button>
+    <p class="error-msg" id="password-error" role="alert" aria-live="polite"></p>
+    <p class="success-msg" id="password-success" role="alert" aria-live="polite"></p>
+  </div>
+</div>
+
+<!-- SECRET CODE PANEL -->
+<div id="secret-code-panel" class="secret-code-panel" role="dialog" aria-labelledby="secret-code-title" aria-modal="true" hidden>
+  <div class="secret-code-content">
+    <button class="close-easter" data-action="close-secret" aria-label="Fechar">&times;</button>
+    <h3 id="secret-code-title">ACCESS TERMINAL</h3>
+    <p>Enter authorization code:</p>
+    <label for="secret-code-input" class="visually-hidden">Código de autorização</label>
+    <input type="text" id="secret-code-input" placeholder="#__" maxlength="4" autocomplete="off" inputmode="numeric" aria-describedby="secret-error">
+    <button data-action="submit-secret">AUTHENTICATE</button>
+    <p class="error-msg" id="secret-error" role="alert" aria-live="polite"></p>
+  </div>
+</div>
+
+<!-- ROCKYOU CHALLENGE PANEL -->
+<div id="rockyou-panel" class="secret-code-panel" role="dialog" aria-labelledby="rockyou-title" aria-modal="true" hidden>
+  <div class="secret-code-content" style="max-width:600px;">
+    <button class="close-easter" data-action="close-rockyou" aria-label="Fechar">&times;</button>
+    <h3 id="rockyou-title">💀 ROCKYOU CHALLENGE</h3>
+    <p class="challenge-intro">From the famous rockyou.txt leak...</p>
+    <div class="hash-box">
+      <p class="hash-label">Crack this SHA-256 hash:</p>
+      <code class="hash-value">ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</code>
+      <p class="hash-hint">💡 Hint: The most common password in rockyou.txt... followed by numbers!</p>
+      <p class="hash-hint" style="font-size:0.7rem;opacity:0.7;">Format: [word][numbers]</p>
+    </div>
+    <label for="rockyou-input" class="visually-hidden">Password</label>
+    <input type="text" id="rockyou-input" placeholder="Enter password..." autocomplete="off" aria-describedby="rockyou-error">
+    <button data-action="submit-rockyou">CRACK IT</button>
+    <p class="error-msg" id="rockyou-error" role="alert" aria-live="polite"></p>
+    <p class="success-msg" id="rockyou-success" role="alert" aria-live="polite"></p>
+    <div class="rockyou-info" style="margin-top:1.5rem;border-top:1px solid #333;padding-top:1rem;">
+      <h4 style="color:#ff5f56;font-size:0.9rem;margin-bottom:0.5rem;">📚 About rockyou.txt</h4>
+      <p style="color:#888;font-size:0.75rem;line-height:1.5;text-align:left;">
+        • <strong style="color:#fff">2009:</strong> RockYou breach exposed <strong style="color:#0f0">14.3 million</strong> passwords<br>
+        • <strong style="color:#fff">Time to crack:</strong> This hash would take <strong style="color:#f00">&lt; 1 second</strong> with GPU brute force<br>
+        • <strong style="color:#fff">Top passwords:</strong> password123, 123456, qwerty, iloveyou<br>
+        • <strong style="color:#fff">Lesson:</strong> Never use dictionary words or common patterns!
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ROOM 27 PANEL -->
+<div id="room27-panel" class="room27-panel" role="dialog" aria-labelledby="room27-title" aria-modal="true" hidden>
+  <div class="room27-content">
+    <button class="close-easter" data-action="close-room27" aria-label="Fechar">&times;</button>
+    <div class="room27-header">
+      <span class="room27-status">ROOM 27 - ACTIVE</span>
+      <h2 id="room27-title">CTF Challenge Terminal</h2>
+    </div>
+    <div class="room27-terminal">
+      <div class="room27-ascii">
 <pre>
     ╔══════════════════════════════════════╗
-    ║   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   ║
+    ║   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   ║
     ║   █ CHALLENGE MODE: INITIALIZED █   ║
     ║   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀   ║
     ╠══════════════════════════════════════╣
@@ -730,62 +317,79 @@
     ║                                      ║
     ╚══════════════════════════════════════╝
 </pre>
+      </div>
+      <div class="room27-info">
+        <div class="challenge-card">
+          <h4>🖥️ Challenge #27: Decode the Future</h4>
+          <p>This room holds a secret message. Can you decode it?</p>
+          <p class="challenge-hint">Hint: The flag is encoded in Base64</p>
         </div>
-        <div class="room27-info">
-          <div class="challenge-card">
-            <h4>🖥️ Challenge #27: Decode the Future</h4>
-            <p>This room holds a secret message. Can you decode it?</p>
-            <p class="challenge-hint">Hint: The flag is encoded in Base64</p>
-          </div>
-          <div class="challenge-card success">
-            <h4>🏆 Achievement Unlocked</h4>
-            <p>You found Room 27!</p>
-            <p>That makes you curious - a perfect trait for cybersecurity.</p>
-          </div>
+        <div class="challenge-card success">
+          <h4>🏆 Achievement Unlocked</h4>
+          <p>You found Room 27!</p>
+          <p>That makes you curious - a perfect trait for cybersecurity.</p>
         </div>
       </div>
     </div>
   </div>
-  
-  <div id="easter-egg-panel" class="easter-egg-panel" role="dialog" aria-labelledby="easter-egg-title" aria-modal="true">
-    <div class="easter-egg-content">
-      <button class="close-easter" data-action="close-easter" aria-label="Fechar">&times;</button>
-      <h2 id="easter-egg-title">Hardware Arsenal</h2>
-      <div class="easter-grid">
-        <div class="easter-item">
-          <div class="easter-icon" aria-hidden="true">🐬</div>
-          <h3>Flipper Zero</h3>
-          <p>Multi-tool for geeks. Sub-GHz, RFID, NFC, IR, GPIO hacking in your pocket.</p>
-        </div>
-        <div class="easter-item">
-          <div class="easter-icon" aria-hidden="true">📶</div>
-          <h3>ESP32 Marauder</h3>
-          <p>Wi-Fi reconnaissance and pentesting tool for deauth, beacon spam, packet monitor.</p>
-        </div>
-        <div class="easter-item">
-          <div class="easter-icon" aria-hidden="true">🐕</div>
-          <h3>ESP32 Hale Hound</h3>
-          <p>Bluetooth Low Energy security testing and device enumeration platform.</p>
-        </div>
-        <div class="easter-item">
-          <div class="easter-icon" aria-hidden="true">👻</div>
-          <h3>ESP32 Ghost</h3>
-          <p>Stealthy wireless penetration testing device with custom firmware capabilities.</p>
-        </div>
-        <div class="easter-item">
-          <div class="easter-icon" aria-hidden="true">🦇</div>
-          <h3>ESP32 Bruce</h3>
-          <p>Versatile ESP32-based tool for wireless security assessments and protocol analysis.</p>
-        </div>
-        <div class="easter-item">
-          <div class="easter-icon" aria-hidden="true">🐱</div>
-          <h3>ESP32 Pwnagotchi</h3>
-          <p>AI-powered Wi-Fi hacking companion that learns from its environment.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <script src="script.js"></script>
+<!-- HARDWARE ARSENAL PANEL -->
+<div id="easter-egg-panel" class="easter-egg-panel" role="dialog" aria-labelledby="easter-egg-title" aria-modal="true" hidden>
+  <div class="easter-egg-content">
+    <button class="close-easter" data-action="close-easter" aria-label="Fechar">&times;</button>
+    <h2 id="easter-egg-title">Hardware Arsenal</h2>
+    <div class="easter-grid">
+      <div class="easter-item">
+        <div class="easter-icon" aria-hidden="true">🐬</div>
+        <h3>Flipper Zero</h3>
+        <p>Multi-tool for geeks. Sub-GHz, RFID, NFC, IR, GPIO hacking in your pocket.</p>
+      </div>
+      <div class="easter-item">
+        <div class="easter-icon" aria-hidden="true">📶</div>
+        <h3>ESP32 Marauder</h3>
+        <p>Wi-Fi reconnaissance and pentesting tool for deauth, beacon spam, packet monitor.</p>
+      </div>
+      <div class="easter-item">
+        <div class="easter-icon" aria-hidden="true">🐕</div>
+        <h3>ESP32 Hale Hound</h3>
+        <p>Bluetooth Low Energy security testing and device enumeration platform.</p>
+      </div>
+      <div class="easter-item">
+        <div class="easter-icon" aria-hidden="true">👻</div>
+        <h3>ESP32 Ghost</h3>
+        <p>Stealthy wireless penetration testing device with custom firmware capabilities.</p>
+      </div>
+      <div class="easter-item">
+        <div class="easter-icon" aria-hidden="true">🦇</div>
+        <h3>ESP32 Bruce</h3>
+        <p>Versatile ESP32-based tool for wireless security assessments and protocol analysis.</p>
+      </div>
+      <div class="easter-item">
+        <div class="easter-icon" aria-hidden="true">🐱</div>
+        <h3>ESP32 Pwnagotchi</h3>
+        <p>AI-powered Wi-Fi hacking companion that learns from its environment.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THEME MODAL -->
+<div class="modal" id="theme-modal" role="dialog" aria-labelledby="theme-modal-title" aria-modal="true" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card">
+    <header class="modal-head">
+      <h2 id="theme-modal-title" data-i18n="ui.chooseTheme">Choose Theme</h2>
+      <button class="modal-close" data-close-modal aria-label="Close" data-i18n-attr="aria-label:ui.close">×</button>
+    </header>
+    <div class="theme-grid" id="theme-grid"></div>
+  </div>
+</div>
+
+<!-- Inline JSON fallbacks (compact, for file:// protocol) -->
+<script type="application/json" id="i18n-en">{"meta":{"title":"LayerZeppelin | Portfolio","description":"LayerZeppelin — 27 themes portfolio"},"ui":{"chooseTheme":"Choose Theme","themeLabel":"Theme","languageLabel":"Language","close":"Close","open":"Open","skipToContent":"Skip to content","menu":"Menu"},"nav":{"about":"About","skills":"Skills","certs":"Certs","ctf":"CTF","projects":"Projects","writeups":"Writeups","tools":"Tools","journey":"Journey","contact":"Contact"},"hero":{"greeting":"Hello, I'm","name":"LayerZeppelin","role":"Cybersecurity Enthusiast","tagline":"Red Team · Blue Team · CTF Player","subtitle":"Aspiring cybersecurity professional · Penetration testing · Web security · Continuous learning","cta1":"Explore Work","cta2":"Get in Touch"},"about":{"title":"About","heading":"Building secure systems, one exploit at a time","bio1":"Passionate about cybersecurity with hands-on experience in penetration testing and a growing interest in blue team operations and system hardening. Every day is an opportunity to learn something new in this ever-evolving field.","bio2":"Currently seeking internship opportunities in cybersecurity. Fluent in English (written & spoken).","highlights":["Red Team: Penetration Testing & Vulnerability Assessment","Blue Team: System Hardening & Defensive Security","Web Application Security & Password Cracking","CTF Competitions & Continuous Learning"]},"footer":{"copyright":"© 2026 LayerZeppelin · Hermínio Teles","built":"Built with security in mind"}}</script>
+<script type="application/json" id="i18n-pt">{"meta":{"title":"LayerZeppelin | Portfólio","description":"LayerZeppelin — portfólio com 27 temas"},"ui":{"chooseTheme":"Escolher Tema","themeLabel":"Tema","languageLabel":"Idioma","close":"Fechar","open":"Abrir","skipToContent":"Saltar para conteúdo","menu":"Menu"},"nav":{"about":"Sobre","skills":"Skills","certs":"Certs","ctf":"CTF","projects":"Projetos","writeups":"Writeups","tools":"Tools","journey":"Jornada","contact":"Contacto"},"hero":{"greeting":"Olá, sou o","name":"LayerZeppelin","role":"Entusiasta de Cibersegurança","tagline":"Red Team · Blue Team · Jogador CTF","subtitle":"Aspirante a profissional de cibersegurança","cta1":"Ver Trabalhos","cta2":"Entrar em Contacto"},"about":{"title":"Sobre","heading":"A construir sistemas seguros, um exploit de cada vez","bio1":"Apaixonado por cibersegurança com experiência prática em penetration testing.","bio2":"À procura de estágio. Fluente em inglês.","highlights":["Red Team","Blue Team","Segurança Web","CTF"]},"footer":{"copyright":"© 2026 LayerZeppelin · Hermínio Teles","built":"Construído com segurança em mente"}}</script>
+
+<script src="./script.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,431 @@
+{
+  "meta": {
+    "title": "LayerZeppelin | 27 Themes Portfolio",
+    "description": "LayerZeppelin — Cybersecurity portfolio with 27 completely unique interface themes."
+  },
+  "ui": {
+    "chooseTheme": "Choose Theme",
+    "themeLabel": "Theme",
+    "languageLabel": "Language",
+    "close": "Close",
+    "open": "Open",
+    "skipToContent": "Skip to content",
+    "menu": "Menu"
+  },
+  "themes": {
+    "t01": {
+      "name": "Cyberpunk Terminal",
+      "desc": "Matrix rain · neon green · terminal aesthetic"
+    },
+    "t02": {
+      "name": "Tron Legacy",
+      "desc": "Cyan wireframes · 3D perspective · digital grid"
+    },
+    "t03": {
+      "name": "Sakura Dreams",
+      "desc": "Cherry blossoms · pink & crimson · elegant typography"
+    },
+    "t04": {
+      "name": "Bauhaus Constructivism",
+      "desc": "Primary colors · geometric shapes · brutalist layout"
+    },
+    "t05": {
+      "name": "Brutalist Mono",
+      "desc": "Pure black & white · giant type · hard shadows"
+    },
+    "t06": {
+      "name": "Y2K Vapor",
+      "desc": "Magenta gradients · glitch effects · 3D buttons"
+    },
+    "t07": {
+      "name": "Solarpunk Eden",
+      "desc": "Living green · organic forms · sunshine"
+    },
+    "t08": {
+      "name": "Bioluminescent Abyss",
+      "desc": "Deep blue · glowing creatures · organic particles"
+    },
+    "t09": {
+      "name": "VHS Retro",
+      "desc": "Scanlines · tracking errors · magenta dreams"
+    },
+    "t10": {
+      "name": "Nordic Minimalist",
+      "desc": "Off-white · elegant serif · generous space"
+    },
+    "t11": {
+      "name": "Memphis 80s",
+      "desc": "Playful patterns · postmodern · colorful chaos"
+    },
+    "t12": {
+      "name": "Art Deco Gold",
+      "desc": "Gold & black · symmetrical geometry · Gatsby"
+    },
+    "t13": {
+      "name": "Holographic Pastel",
+      "desc": "Iridescent · rainbow glass · futuristic shimmer"
+    },
+    "t14": {
+      "name": "Dark Academia",
+      "desc": "Sepia · books · classical serif · old library"
+    },
+    "t15": {
+      "name": "Risograph Print",
+      "desc": "Limited palette · grain texture · indie print"
+    },
+    "t16": {
+      "name": "Pixel Arcade",
+      "desc": "8-bit blocks · pixel type · retro games"
+    },
+    "t17": {
+      "name": "Liquid Metal",
+      "desc": "Mercury silver · reflections · fluid futurism"
+    },
+    "t18": {
+      "name": "Japanese Ukiyo-e",
+      "desc": "Woodblock prints · waves · traditional"
+    },
+    "t19": {
+      "name": "Renaissance Manuscript",
+      "desc": "Parchment · illuminated letters · classical"
+    },
+    "t20": {
+      "name": "Steampunk Brass",
+      "desc": "Bronze & copper · gears · Victorian era"
+    },
+    "t21": {
+      "name": "Space Opera",
+      "desc": "Stars & nebulae · gold on indigo · epic"
+    },
+    "t22": {
+      "name": "Cottagecore",
+      "desc": "Beige & sage · floral · cozy handwritten"
+    },
+    "t23": {
+      "name": "Cassette Futurism",
+      "desc": "80s sci-fi · orange & brown · CRT analog"
+    },
+    "t24": {
+      "name": "Origami Paper",
+      "desc": "Folded paper · soft shadows · Japanese minimal"
+    },
+    "t25": {
+      "name": "Bauhaus Grid",
+      "desc": "Modular grid · systematic · geometric"
+    },
+    "t26": {
+      "name": "Glitch Art",
+      "desc": "RGB split · digital noise · anti-UI"
+    },
+    "t27": {
+      "name": "Aurora Borealis",
+      "desc": "Northern lights · ethereal gradients · magical"
+    }
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "certs": "Certs",
+    "ctf": "CTF",
+    "projects": "Projects",
+    "writeups": "Writeups",
+    "tools": "Tools",
+    "journey": "Journey",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "LayerZeppelin",
+    "role": "Cybersecurity Enthusiast",
+    "tagline": "Red Team · Blue Team · CTF Player",
+    "subtitle": "Aspiring cybersecurity professional · Penetration testing · Web security · Continuous learning",
+    "cta1": "Explore Work",
+    "cta2": "Get in Touch"
+  },
+  "about": {
+    "title": "About",
+    "heading": "Building secure systems, one exploit at a time",
+    "bio1": "Passionate about cybersecurity with hands-on experience in penetration testing and a growing interest in blue team operations and system hardening. Every day is an opportunity to learn something new in this ever-evolving field.",
+    "bio2": "Currently seeking internship opportunities in cybersecurity. Fluent in English (written & spoken).",
+    "highlights": [
+      "Red Team: Penetration Testing & Vulnerability Assessment",
+      "Blue Team: System Hardening & Defensive Security",
+      "Web Application Security & Password Cracking",
+      "CTF Competitions & Continuous Learning"
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I work with",
+    "categories": {
+      "lang": "Languages",
+      "sec": "Security & Testing",
+      "os": "Operating Systems",
+      "dev": "Development & Tools",
+      "tools": "Security Tools"
+    },
+    "items": {
+      "english": {
+        "name": "English",
+        "desc": "Fluent (C1) — Written & Spoken",
+        "level": 80
+      },
+      "portuguese": {
+        "name": "Portuguese",
+        "desc": "Native",
+        "level": 100
+      },
+      "pentest": {
+        "name": "Penetration Testing",
+        "level": 6
+      },
+      "web": {
+        "name": "Web Security",
+        "level": 8
+      },
+      "osint": {
+        "name": "OSINT / Recon",
+        "level": 5
+      },
+      "network": {
+        "name": "Network Security",
+        "level": 6
+      },
+      "kali": {
+        "name": "Kali Linux",
+        "level": 10
+      },
+      "nethunter": {
+        "name": "Kali Nethunter",
+        "level": 4
+      },
+      "parrot": {
+        "name": "Parrot OS",
+        "level": 5
+      },
+      "ubuntu": {
+        "name": "Ubuntu / Server",
+        "level": 8
+      },
+      "windows": {
+        "name": "Windows Server",
+        "level": 5
+      },
+      "python": {
+        "name": "Python / Scripting",
+        "level": 6
+      },
+      "proxmox": {
+        "name": "Proxmox VE",
+        "level": 5
+      },
+      "vmware": {
+        "name": "VMware",
+        "level": 5
+      },
+      "docker": {
+        "name": "Docker",
+        "level": 4
+      },
+      "wsl": {
+        "name": "WSL",
+        "level": 10
+      },
+      "wireguard": {
+        "name": "WireGuard",
+        "level": 5
+      },
+      "openvpn": {
+        "name": "OpenVPN",
+        "level": 5
+      },
+      "shodan": {
+        "name": "Shodan",
+        "level": 5
+      },
+      "burp": {
+        "name": "Burp Suite CE",
+        "level": 6
+      },
+      "nmap": {
+        "name": "Nmap",
+        "level": 8
+      },
+      "metasploit": {
+        "name": "Metasploit",
+        "level": 4
+      },
+      "wireshark": {
+        "name": "Wireshark",
+        "level": 5
+      },
+      "john": {
+        "name": "John the Ripper",
+        "level": 4
+      },
+      "hashcat": {
+        "name": "Hashcat",
+        "level": 4
+      },
+      "gobuster": {
+        "name": "Gobuster / Dirb",
+        "level": 5
+      },
+      "nikto": {
+        "name": "Nikto",
+        "level": 5
+      }
+    }
+  },
+  "certs": {
+    "title": "Certifications",
+    "subtitle": "Continuous learning path",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "planned": "Planned"
+    },
+    "view": "View Certificate",
+    "items": [
+      {
+        "name": "Cinel Cybersecurity",
+        "issuer": "Cinel — Beginner",
+        "status": "completed",
+        "img": "cinel-iniciante.png"
+      },
+      {
+        "name": "Cinel Cybersecurity",
+        "issuer": "Cinel — Advanced",
+        "status": "completed",
+        "img": "cinel-avancado.png"
+      },
+      {
+        "name": "BIG School — Ciberseguridad y Hacking Ético",
+        "issuer": "Vulnerability detection & digital defense",
+        "status": "completed",
+        "img": "big-school.png"
+      },
+      {
+        "name": "Cinel Cybersecurity",
+        "issuer": "Cinel — Expert",
+        "status": "inProgress"
+      },
+      {
+        "name": "Cisco Ethical Hacker",
+        "issuer": "Cisco Networking Academy",
+        "status": "inProgress"
+      },
+      {
+        "name": "TryHackMe",
+        "issuer": "Various Learning Paths",
+        "status": "inProgress"
+      },
+      {
+        "name": "HackTheBox Academy",
+        "issuer": "HTB Certifications",
+        "status": "inProgress"
+      },
+      {
+        "name": "PortSwigger",
+        "issuer": "Web Security Academy",
+        "status": "inProgress"
+      },
+      {
+        "name": "eLearnSecurity",
+        "issuer": "INE Security",
+        "status": "planned"
+      }
+    ]
+  },
+  "ctf": {
+    "title": "CTF & Labs",
+    "subtitle": "Active on capture-the-flag platforms"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected work and experiments",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
+    "viewMore": "View on GitHub",
+    "items": [
+      {
+        "name": "LayerZeppelin.pt",
+        "description": "Personal cybersecurity portfolio with 27 unique interface themes, terminal aesthetics, and modern dark theme. GDPR compliant.",
+        "tags": [
+          "HTML/CSS",
+          "JavaScript",
+          "Security"
+        ],
+        "image": "project-final.png",
+        "url": "https://layerzeppelin.pt",
+        "code": "https://github.com/HSMTFPS"
+      },
+      {
+        "name": "Password Challenges",
+        "description": "Interactive password cracking challenges embedded in the portfolio. Includes SHA-256 hash cracking exercises with educational feedback.",
+        "tags": [
+          "Cryptography",
+          "Education",
+          "JS"
+        ]
+      },
+      {
+        "name": "CTF Writeups",
+        "description": "Capture The Flag competition writeups and solutions. Documenting challenges from TryHackMe, HackTheBox, and other platforms.",
+        "tags": [
+          "CTF",
+          "Writeups",
+          "Learning"
+        ]
+      }
+    ]
+  },
+  "writeups": {
+    "title": "Writeups",
+    "subtitle": "CTF challenges and security concepts explained. Coming soon with detailed walkthroughs.",
+    "coming": "Coming Soon",
+    "items": [
+      {
+        "name": "THM Walkthroughs",
+        "desc": "TryHackMe room solutions and techniques."
+      },
+      {
+        "name": "HTB Machines",
+        "desc": "HackTheBox machine writeups."
+      },
+      {
+        "name": "CTF Writeups",
+        "desc": "Documenting my CTF journey and security research."
+      }
+    ]
+  },
+  "tools": {
+    "title": "Tools Arsenal",
+    "subtitle": "My security toolbox",
+    "categories": {
+      "recon": "Reconnaissance",
+      "web": "Web Testing",
+      "exploit": "Exploitation",
+      "pass": "Password Cracking",
+      "net": "Network Analysis",
+      "os": "Operating Systems"
+    }
+  },
+  "journey": {
+    "title": "Certification Journey",
+    "subtitle": "Step by step, level by level"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's build something secure together",
+    "description": "Open to internship opportunities and cybersecurity collaborations. Reach out through any of the channels below.",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "tryhackme": "TryHackMe"
+  },
+  "footer": {
+    "copyright": "© 2026 LayerZeppelin · Hermínio Teles",
+    "built": "Built with security in mind"
+  }
+}
