@@ -4,17 +4,23 @@
    ============================================================ */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;overflow-x:hidden;transition:background 0.6s ease,color 0.6s ease,font-family 0.4s}
-.bg-fx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.bg-fx canvas{position:absolute;inset:0;width:100%;height:100%;display:none;opacity:0;transition:opacity 0.6s}
+html{scroll-behavior:smooth;background:#0a0a0a}
+[data-theme="t01"]{background:#0a0a0a}
+[data-theme="t02"]{background:linear-gradient(180deg,#000814 0%,#001d3d 100%)}
+[data-theme="t03"]{background:linear-gradient(180deg,#fef5f7 0%,#fde8ee 100%)}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;overflow-x:hidden;transition:background 0.6s ease,color 0.6s ease,font-family 0.4s;background:transparent}
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-fx canvas{position:absolute;inset:0;width:100%;height:100%;display:none;opacity:0.15;transition:opacity 0.6s}
 [data-theme="t01"] #fx-matrix,
 [data-theme="t02"] #fx-tron,
 [data-theme="t03"] #fx-sakura,
 [data-theme="t08"] #fx-biolumi,
 [data-theme="t09"] #fx-vhs,
 [data-theme="t21"] #fx-stars,
-[data-theme="t27"] #fx-aurora{display:block;opacity:1}
+[data-theme="t27"] #fx-aurora{display:block;opacity:0.15}
+
+/* Ensure all content sits above the canvas */
+.topbar,.sec,.site-footer,.modal,.secret-code-panel,.room27-panel,.easter-egg-panel{position:relative;z-index:1}
 
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
@@ -91,7 +97,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   --bg:#0a0a0a;--bg-2:#111;--fg:#e0e0e0;--muted:#888;--accent:#00ff41;--accent-2:#00cc33;--danger:#ff5f56;--warn:#ffbd2e;--border:#222;--term-bg:#0d1117;
   font-family:'Courier New',Consolas,monospace;background:#0a0a0a;color:#e0e0e0;
 }
-[data-theme="t01"] body{background:#0a0a0a;color:#e0e0e0;font-family:'Courier New',monospace}
+[data-theme="t01"] body{background:transparent;color:#e0e0e0;font-family:'Courier New',monospace}
 [data-theme="t01"] .topbar{background:rgba(10,10,10,0.92);border-bottom:1px solid #222;backdrop-filter:blur(10px)}
 [data-theme="t01"] .brand-glyph{background:linear-gradient(135deg,#00ff41,#00cc33);color:#000;box-shadow:0 0 20px rgba(0,255,65,0.4)}
 [data-theme="t01"] .brand-name{color:#00ff41;text-shadow:0 0 10px rgba(0,255,65,0.5)}
@@ -200,7 +206,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
    THEME 02: TRON LEGACY
    ============================================================ */
 [data-theme="t02"]{--bg:#000814;--fg:#6fffe9;--accent:#00f0ff;background:#000814;color:#6fffe9;font-family:'Helvetica Neue',Arial,sans-serif}
-[data-theme="t02"] body{background:linear-gradient(180deg,#000814 0%,#001d3d 100%);color:#caf0f8;font-family:'Trebuchet MS',sans-serif;min-height:100vh}
+[data-theme="t02"] body{background:transparent;color:#caf0f8;font-family:'Trebuchet MS',sans-serif;min-height:100vh}
 [data-theme="t02"] #fx-tron{opacity:0.7}
 [data-theme="t02"] .topbar{background:rgba(0,8,20,0.85);border-bottom:1px solid #00f0ff;box-shadow:0 0 20px rgba(0,240,255,0.3)}
 [data-theme="t02"] .brand-glyph{background:#000;border:1px solid #00f0ff;color:#00f0ff;box-shadow:inset 0 0 10px rgba(0,240,255,0.5),0 0 15px rgba(0,240,255,0.5);font-family:'Courier New',monospace}
@@ -296,7 +302,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
    THEME 03: SAKURA DREAMS
    ============================================================ */
 [data-theme="t03"]{--bg:#fef5f7;--bg-2:#fff;--fg:#2d1b2e;--accent:#d4577a;--accent-2:#9b2850;background:linear-gradient(180deg,#fef5f7 0%,#fde8ee 100%);color:#2d1b2e;font-family:'Georgia',serif}
-[data-theme="t03"] body{background:linear-gradient(180deg,#fef5f7 0%,#fde8ee 100%);color:#2d1b2e;font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+[data-theme="t03"] body{background:transparent;color:#2d1b2e;font-family:Georgia,'Times New Roman',serif;min-height:100vh}
 [data-theme="t03"] .topbar{background:rgba(254,245,247,0.85);border-bottom:1px solid rgba(212,87,122,0.2);backdrop-filter:blur(15px)}
 [data-theme="t03"] .brand-glyph{background:linear-gradient(135deg,#fbb4c4,#d4577a);color:#fff;box-shadow:0 4px 15px rgba(212,87,122,0.3);font-family:Georgia,serif;font-style:italic}
 [data-theme="t03"] .brand-name{color:#9b2850;font-style:italic;font-weight:400;letter-spacing:0.05em}
