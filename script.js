@@ -749,41 +749,55 @@ function renderAll(){
    EASTER EGGS — password challenges, secret code, room27, konami, hardware
    ============================================================ */
 const Challenges={
-  sha256:async(s)=>{const b=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,'0')).join('')},
+  // Expected answers (case-insensitive, trimmed)
+  answers:{
+    'password-input':'Sporting1906',
+    'rockyou-input':'password123'
+  },
 
-  async check(inputId,errId,okId,targetHash,okMsg){
+  check(inputId,errId,okId,answer,okMsg){
     const input=document.getElementById(inputId),err=document.getElementById(errId),ok=document.getElementById(okId);
     if(!input)return;
     err.textContent='';ok.textContent='';
-    const v=input.value;
+    const v=(input.value||'').trim();
     if(!v){err.textContent='⚠️ Introduza uma password';return}
-    try{
-      const h=await this.sha256(v);
-      if(h===targetHash){ok.textContent=okMsg;input.value=''}
-      else{err.textContent='❌ ACCESS DENIED - Password incorreta';input.value=''}
-    }catch(_){err.textContent='⚠️ Erro ao processar'}
+    if(v.toLowerCase()===answer.toLowerCase()){
+      ok.textContent=okMsg;
+      input.value='';
+      return true;
+    }else{
+      err.textContent='❌ ACCESS DENIED - Password incorreta';
+      input.value='';
+      return false;
+    }
   },
 
   init(){
     const self=this;
+    const show=id=>{const p=document.getElementById(id);if(p)p.hidden=false};
+    const hide=id=>{const p=document.getElementById(id);if(p)p.hidden=true};
+    const focus=id=>{const i=document.getElementById(id);if(i)i.focus()};
+
     document.addEventListener('click',e=>{
       const t=e.target.closest('[data-action]');
       if(!t)return;
       const a=t.getAttribute('data-action');
-      const show=id=>{const p=document.getElementById(id);if(p)p.hidden=false};
-      const hide=id=>{const p=document.getElementById(id);if(p)p.hidden=true};
       switch(a){
         case 'open-easter':show('easter-egg-panel');break;
         case 'close-easter':hide('easter-egg-panel');break;
-        case 'open-secret':show('secret-code-panel');const si=document.getElementById('secret-code-input');if(si)si.focus();break;
+        case 'open-secret':show('secret-code-panel');focus('secret-code-input');break;
         case 'close-secret':hide('secret-code-panel');break;
-        case 'open-rockyou':show('rockyou-panel');const ri=document.getElementById('rockyou-input');if(ri)ri.focus();break;
+        case 'open-rockyou':show('rockyou-panel');focus('rockyou-input');break;
         case 'close-rockyou':hide('rockyou-panel');break;
-        case 'open-password':show('password-challenge-panel');const pi=document.getElementById('password-input');if(pi)pi.focus();break;
+        case 'open-password':show('password-challenge-panel');focus('password-input');break;
         case 'close-password':hide('password-challenge-panel');break;
         case 'close-room27':hide('room27-panel');break;
-        case 'submit-password':self.check('password-input','password-error','password-success','071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009','🎉 PARABÉNS! Descobriste o segredo!');break;
-        case 'submit-rockyou':self.check('rockyou-input','rockyou-error','rockyou-success','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','🔓 HASH CRACKED! Lição: Nunca uses passwords comuns!');break;
+        case 'submit-password':
+          self.check('password-input','password-error','password-success','Sporting1906','🎉 PARABÉNS! Descobriste o segredo! Sporting Clube de Portugal, fundado em 1906.');
+          break;
+        case 'submit-rockyou':
+          self.check('rockyou-input','rockyou-error','rockyou-success','password123','🔓 HASH CRACKED! Password: password123 — Lição: Nunca uses passwords comuns!');
+          break;
         case 'submit-secret':{
           const inp=document.getElementById('secret-code-input'),er=document.getElementById('secret-error');
           if(!inp)break;
@@ -795,13 +809,17 @@ const Challenges={
       }
     });
 
+    // Enter key support for all challenge inputs
     document.querySelectorAll('#password-input,#rockyou-input,#secret-code-input').forEach(el=>{
-      el.addEventListener('keypress',e=>{
+      el.addEventListener('keydown',e=>{
         if(e.key!=='Enter')return;
+        e.preventDefault();
         const id=el.id;
-        if(id==='password-input')self.check('password-input','password-error','password-success','071542419dd270a3f5a674d10556b9bed28e6ec50e3d68df13c13b6b5ed26009','🎉 PARABÉNS! Descobriste o segredo!');
-        else if(id==='rockyou-input')self.check('rockyou-input','rockyou-error','rockyou-success','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f','🔓 HASH CRACKED! Lição: Nunca uses passwords comuns!');
-        else if(id==='secret-code-input'){
+        if(id==='password-input'){
+          self.check('password-input','password-error','password-success','Sporting1906','🎉 PARABÉNS! Descobriste o segredo! Sporting Clube de Portugal, fundado em 1906.');
+        }else if(id==='rockyou-input'){
+          self.check('rockyou-input','rockyou-error','rockyou-success','password123','🔓 HASH CRACKED! Password: password123 — Lição: Nunca uses passwords comuns!');
+        }else if(id==='secret-code-input'){
           const s=(el.value||'').replace(/[^0-9#]/g,'');
           if(s==='27'||s==='#27'){document.getElementById('secret-code-panel').hidden=true;document.getElementById('room27-panel').hidden=false;el.value=''}
           else{document.getElementById('secret-error').textContent='ACESSO NEGADO';el.value=''}
