@@ -277,10 +277,14 @@ const CanvasFx={
     const W=()=>this.W, H=()=>this.H;
 
     if(id==='matrix'){
-      const words='password 123456 qwerty dragon baseball football letmein monkey abc123 mustang shadow master jordan superman hunter trustno1 ranger batman test killer hockey charlie access hello freedom computer thunder summer 123456789 starwars silver chicago yankees arsenal liverpool security admin password1 iloveyou sunshine princess football1 welcome matrix zeppelin'.split(' ');
-      const cols=Math.floor(W()/14);
-      const drops=Array(cols).fill(0).map((_,i)=>({y:Math.random()*H(),word:words[Math.floor(Math.random()*words.length)]}));
-      this.state.matrix={drops,words};
+      const words=window.ROCKYOU_WORDS||['password','123456','qwerty','dragon','matrix'];
+      const fontSize=20;
+      const cols=Math.floor(W()/fontSize);
+      const drops=[];
+      for(let i=0;i<cols;i++){
+        drops.push({y:Math.random()*H()*-1,word:words[Math.floor(Math.random()*words.length)],speed:fontSize+Math.random()*fontSize});
+      }
+      this.state.matrix={drops,words,fontSize};
     }else if(id==='tron'){
       this.state.tron={t:0};
     }else if(id==='sakura'){
@@ -341,35 +345,37 @@ const CanvasFx={
 
     if(id==='matrix'){
       const st=this.state.matrix;
-      ctx.fillStyle='rgba(10,10,10,0.05)';
+      const fs=st.fontSize||20;
+      ctx.fillStyle='rgba(10,10,10,0.06)';
       ctx.fillRect(0,0,W,H);
-      ctx.font='14px monospace';
+      ctx.font='bold '+fs+'px monospace';
       for(let i=0;i<st.drops.length;i++){
         const d=st.drops[i];
-        const x=i*14;
-        // Draw each letter of the word stacked vertically
+        const x=i*fs;
         for(let j=0;j<d.word.length;j++){
-          const ch=d.word[j];
-          const y=d.y-j*14;
-          if(y<0||y>H)continue;
+          const y=d.y-j*fs;
+          if(y<-fs||y>H+fs)continue;
           if(j===0){
-            // Bright white head
-            ctx.fillStyle='#ccffcc';
+            ctx.fillStyle='#ffffff';
+            ctx.shadowColor='#00ff41';
+            ctx.shadowBlur=20;
+          }else if(j<4){
+            ctx.fillStyle='#00ff41';
             ctx.shadowColor='#00ff41';
             ctx.shadowBlur=12;
           }else{
-            ctx.fillStyle='#00ff41';
-            ctx.shadowColor='#00ff41';
-            ctx.shadowBlur=8;
+            ctx.fillStyle='rgba(0,255,65,'+(Math.max(0,1-j*0.12))+')';
+            ctx.shadowBlur=0;
           }
-          ctx.fillText(ch,x,y);
+          ctx.fillText(d.word[j],x,y);
         }
         ctx.shadowBlur=0;
-        if(d.y-d.word.length*14>H&&Math.random()>0.975){
-          d.y=0;
+        if(d.y-d.word.length*fs>H&&Math.random()>0.955){
+          d.y=-Math.random()*300;
           d.word=st.words[Math.floor(Math.random()*st.words.length)];
+          d.speed=fs+Math.random()*fs;
         }
-        d.y+=14;
+        d.y+=d.speed;
       }
     }else if(id==='tron'){
       const st=this.state.tron; st.t+=0.02;
