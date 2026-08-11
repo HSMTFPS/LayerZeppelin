@@ -278,13 +278,20 @@ const CanvasFx={
 
     if(id==='matrix'){
       const chars='ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@!%&';
+      const rk=window.ROCKYOU_WORDS||[];
       const fontSize=16;
       const cols=Math.floor(W()/fontSize);
       const drops=[];
       for(let i=0;i<cols;i++){
-        let word='';
-        const wl=4+Math.floor(Math.random()*12);
-        for(let k=0;k<wl;k++)word+=chars[Math.floor(Math.random()*chars.length)];
+        // 50% chance: RockYou password, 50%: random katakana/number string
+        let word;
+        if(rk.length&&Math.random()>0.5){
+          word=rk[Math.floor(Math.random()*rk.length)];
+        }else{
+          word='';
+          const wl=4+Math.floor(Math.random()*12);
+          for(let k=0;k<wl;k++)word+=chars[Math.floor(Math.random()*chars.length)];
+        }
         drops.push({
           y:Math.random()*H()*-1,
           word:word,
@@ -357,6 +364,7 @@ const CanvasFx={
       ctx.fillRect(0,0,W,H);
       ctx.font=fs+'px monospace';
       const chars='ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@!%&';
+      const rk=window.ROCKYOU_WORDS||[];
       for(let i=0;i<st.drops.length;i++){
         const d=st.drops[i];
         const x=i*fs;
@@ -398,9 +406,14 @@ const CanvasFx={
         // Reset when off screen
         if(d.y-trailLen*fs>H&&Math.random()>0.975){
           d.y=-Math.random()*300;
-          d.word='';
-          const wl=4+Math.floor(Math.random()*12);
-          for(let k=0;k<wl;k++)d.word+=chars[Math.floor(Math.random()*chars.length)];
+          // 50% RockYou password, 50% random katakana string
+          if(rk.length&&Math.random()>0.5){
+            d.word=rk[Math.floor(Math.random()*rk.length)];
+          }else{
+            d.word='';
+            const wl=4+Math.floor(Math.random()*12);
+            for(let k=0;k<wl;k++)d.word+=chars[Math.floor(Math.random()*chars.length)];
+          }
           d.speed=fs*(0.3+Math.random()*1.2);
         }
         d.y+=d.speed;
