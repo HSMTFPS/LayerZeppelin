@@ -295,7 +295,7 @@ const CanvasFx={
         drops.push({
           y:Math.random()*H()*-1,
           word:word,
-          speed:fontSize*(0.3+Math.random()*1.2)
+          speed:fontSize*(0.15+Math.random()*0.5)
         });
       }
       this.state.matrix={drops,fontSize};
@@ -414,7 +414,7 @@ const CanvasFx={
             const wl=4+Math.floor(Math.random()*12);
             for(let k=0;k<wl;k++)d.word+=chars[Math.floor(Math.random()*chars.length)];
           }
-          d.speed=fs*(0.3+Math.random()*1.2);
+          d.speed=fs*(0.15+Math.random()*0.5);
         }
         d.y+=d.speed;
       }
