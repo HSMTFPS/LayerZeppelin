@@ -277,19 +277,21 @@ const CanvasFx={
     const W=()=>this.W, H=()=>this.H;
 
     if(id==='matrix'){
-      const words=window.ROCKYOU_WORDS||['password','123456','qwerty','dragon','matrix'];
+      const chars='ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@!%&';
       const fontSize=16;
       const cols=Math.floor(W()/fontSize);
       const drops=[];
       for(let i=0;i<cols;i++){
+        let word='';
+        const wl=4+Math.floor(Math.random()*12);
+        for(let k=0;k<wl;k++)word+=chars[Math.floor(Math.random()*chars.length)];
         drops.push({
           y:Math.random()*H()*-1,
-          word:words[Math.floor(Math.random()*words.length)],
-          speed:fontSize*(0.5+Math.random()*1.5),
-          changeTimer:Math.floor(Math.random()*30)
+          word:word,
+          speed:fontSize*(0.3+Math.random()*1.2)
         });
       }
-      this.state.matrix={drops,words,fontSize};
+      this.state.matrix={drops,fontSize};
     }else if(id==='tron'){
       this.state.tron={t:0};
     }else if(id==='sakura'){
@@ -351,40 +353,55 @@ const CanvasFx={
     if(id==='matrix'){
       const st=this.state.matrix;
       const fs=st.fontSize||16;
-      ctx.fillStyle='rgba(10,10,10,0.04)';
+      ctx.fillStyle='rgba(10,10,10,0.05)';
       ctx.fillRect(0,0,W,H);
       ctx.font=fs+'px monospace';
+      const chars='ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@!%&';
       for(let i=0;i<st.drops.length;i++){
         const d=st.drops[i];
         const x=i*fs;
-        // Each frame, randomly mutate some letters in the word (chaos effect)
-        if(Math.random()>0.85){
-          const idx=Math.floor(Math.random()*d.word.length);
-          const newWord=st.words[Math.floor(Math.random()*st.words.length)];
-          if(newWord.length>idx){
-            d.word=d.word.substring(0,idx)+newWord[idx]+d.word.substring(idx+1);
-          }
-        }
-        for(let j=0;j<d.word.length;j++){
+        // Draw trail: each position has a char that mutates
+        const trailLen=Math.min(d.word.length,30);
+        for(let j=0;j<trailLen;j++){
           const y=d.y-j*fs;
           if(y<-fs||y>H+fs)continue;
+          // Mutate chars randomly as they fall
+          let ch;
           if(j===0){
-            ctx.fillStyle='#aaffaa';
+            // Head: bright white-green, pick random char
+            ch=chars[Math.floor(Math.random()*chars.length)];
+            ctx.fillStyle='#e6ffe6';
+            ctx.shadowColor='#00ff41';
+            ctx.shadowBlur=12;
+          }else if(j<3){
+            // Near head: bright green, chars still mutating
+            ch=Math.random()>0.3?chars[Math.floor(Math.random()*chars.length)]:d.word[j]||chars[0];
+            ctx.fillStyle='#00ff41';
             ctx.shadowColor='#00ff41';
             ctx.shadowBlur=8;
           }else{
-            const alpha=Math.max(0.05,1-j*0.08);
+            // Trail: fading green, chars mutate less frequently
+            ch=Math.random()>0.92?chars[Math.floor(Math.random()*chars.length)]:(d.word[j]||chars[Math.floor(Math.random()*chars.length)]);
+            const alpha=Math.max(0.03,1-j*0.06);
             ctx.fillStyle='rgba(0,255,65,'+alpha+')';
-            ctx.shadowColor='rgba(0,255,65,0.5)';
-            ctx.shadowBlur=4;
+            ctx.shadowColor='rgba(0,255,65,0.3)';
+            ctx.shadowBlur=2;
           }
-          ctx.fillText(d.word[j],x,y);
+          ctx.fillText(ch,x,y);
         }
         ctx.shadowBlur=0;
-        if(d.y-d.word.length*fs>H&&Math.random()>0.97){
-          d.y=-Math.random()*400;
-          d.word=st.words[Math.floor(Math.random()*st.words.length)];
-          d.speed=fs*(0.5+Math.random()*1.5);
+        // Occasionally mutate the stored word
+        if(Math.random()>0.7){
+          const idx=Math.floor(Math.random()*d.word.length);
+          d.word=d.word.substring(0,idx)+chars[Math.floor(Math.random()*chars.length)]+d.word.substring(idx+1);
+        }
+        // Reset when off screen
+        if(d.y-trailLen*fs>H&&Math.random()>0.975){
+          d.y=-Math.random()*300;
+          d.word='';
+          const wl=4+Math.floor(Math.random()*12);
+          for(let k=0;k<wl;k++)d.word+=chars[Math.floor(Math.random()*chars.length)];
+          d.speed=fs*(0.3+Math.random()*1.2);
         }
         d.y+=d.speed;
       }
