@@ -351,24 +351,28 @@ const CanvasFx={
     if(id==='matrix'){
       const st=this.state.matrix;
       const fs=st.fontSize||16;
-      // Dark fade overlay creates the long trailing effect
       ctx.fillStyle='rgba(10,10,10,0.04)';
       ctx.fillRect(0,0,W,H);
       ctx.font=fs+'px monospace';
       for(let i=0;i<st.drops.length;i++){
         const d=st.drops[i];
         const x=i*fs;
-        // Draw the word as vertical letters
+        // Each frame, randomly mutate some letters in the word (chaos effect)
+        if(Math.random()>0.85){
+          const idx=Math.floor(Math.random()*d.word.length);
+          const newWord=st.words[Math.floor(Math.random()*st.words.length)];
+          if(newWord.length>idx){
+            d.word=d.word.substring(0,idx)+newWord[idx]+d.word.substring(idx+1);
+          }
+        }
         for(let j=0;j<d.word.length;j++){
           const y=d.y-j*fs;
           if(y<-fs||y>H+fs)continue;
           if(j===0){
-            // Bright white head — the leading character
             ctx.fillStyle='#aaffaa';
             ctx.shadowColor='#00ff41';
             ctx.shadowBlur=8;
           }else{
-            // Green with slow fade down the trail
             const alpha=Math.max(0.05,1-j*0.08);
             ctx.fillStyle='rgba(0,255,65,'+alpha+')';
             ctx.shadowColor='rgba(0,255,65,0.5)';
@@ -377,15 +381,6 @@ const CanvasFx={
           ctx.fillText(d.word[j],x,y);
         }
         ctx.shadowBlur=0;
-        // Occasionally change the word mid-fall for chaos effect
-        d.changeTimer++;
-        if(d.changeTimer>20+Math.random()*40){
-          d.changeTimer=0;
-          if(Math.random()>0.5){
-            d.word=st.words[Math.floor(Math.random()*st.words.length)];
-          }
-        }
-        // Reset when fully off screen
         if(d.y-d.word.length*fs>H&&Math.random()>0.97){
           d.y=-Math.random()*400;
           d.word=st.words[Math.floor(Math.random()*st.words.length)];
