@@ -278,11 +278,16 @@ const CanvasFx={
 
     if(id==='matrix'){
       const words=window.ROCKYOU_WORDS||['password','123456','qwerty','dragon','matrix'];
-      const fontSize=20;
+      const fontSize=16;
       const cols=Math.floor(W()/fontSize);
       const drops=[];
       for(let i=0;i<cols;i++){
-        drops.push({y:Math.random()*H()*-1,word:words[Math.floor(Math.random()*words.length)],speed:fontSize+Math.random()*fontSize});
+        drops.push({
+          y:Math.random()*H()*-1,
+          word:words[Math.floor(Math.random()*words.length)],
+          speed:fontSize*(0.5+Math.random()*1.5),
+          changeTimer:Math.floor(Math.random()*30)
+        });
       }
       this.state.matrix={drops,words,fontSize};
     }else if(id==='tron'){
@@ -345,35 +350,46 @@ const CanvasFx={
 
     if(id==='matrix'){
       const st=this.state.matrix;
-      const fs=st.fontSize||20;
-      ctx.fillStyle='rgba(10,10,10,0.06)';
+      const fs=st.fontSize||16;
+      // Dark fade overlay creates the long trailing effect
+      ctx.fillStyle='rgba(10,10,10,0.04)';
       ctx.fillRect(0,0,W,H);
-      ctx.font='bold '+fs+'px monospace';
+      ctx.font=fs+'px monospace';
       for(let i=0;i<st.drops.length;i++){
         const d=st.drops[i];
         const x=i*fs;
+        // Draw the word as vertical letters
         for(let j=0;j<d.word.length;j++){
           const y=d.y-j*fs;
           if(y<-fs||y>H+fs)continue;
           if(j===0){
-            ctx.fillStyle='#ffffff';
+            // Bright white head — the leading character
+            ctx.fillStyle='#aaffaa';
             ctx.shadowColor='#00ff41';
-            ctx.shadowBlur=20;
-          }else if(j<4){
-            ctx.fillStyle='#00ff41';
-            ctx.shadowColor='#00ff41';
-            ctx.shadowBlur=12;
+            ctx.shadowBlur=8;
           }else{
-            ctx.fillStyle='rgba(0,255,65,'+(Math.max(0,1-j*0.12))+')';
-            ctx.shadowBlur=0;
+            // Green with slow fade down the trail
+            const alpha=Math.max(0.05,1-j*0.08);
+            ctx.fillStyle='rgba(0,255,65,'+alpha+')';
+            ctx.shadowColor='rgba(0,255,65,0.5)';
+            ctx.shadowBlur=4;
           }
           ctx.fillText(d.word[j],x,y);
         }
         ctx.shadowBlur=0;
-        if(d.y-d.word.length*fs>H&&Math.random()>0.955){
-          d.y=-Math.random()*300;
+        // Occasionally change the word mid-fall for chaos effect
+        d.changeTimer++;
+        if(d.changeTimer>20+Math.random()*40){
+          d.changeTimer=0;
+          if(Math.random()>0.5){
+            d.word=st.words[Math.floor(Math.random()*st.words.length)];
+          }
+        }
+        // Reset when fully off screen
+        if(d.y-d.word.length*fs>H&&Math.random()>0.97){
+          d.y=-Math.random()*400;
           d.word=st.words[Math.floor(Math.random()*st.words.length)];
-          d.speed=fs+Math.random()*fs;
+          d.speed=fs*(0.5+Math.random()*1.5);
         }
         d.y+=d.speed;
       }
