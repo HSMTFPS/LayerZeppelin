@@ -277,9 +277,10 @@ const CanvasFx={
     const W=()=>this.W, H=()=>this.H;
 
     if(id==='matrix'){
+      const words='password 123456 qwerty dragon baseball football letmein monkey abc123 mustang shadow master jordan superman hunter trustno1 ranger batman test killer hockey charlie access hello freedom computer thunder summer 123456789 starwars silver chicago yankees arsenal liverpool security admin password1 iloveyou sunshine princess football1 welcome matrix zeppelin'.split(' ');
       const cols=Math.floor(W()/14);
-      const drops=Array(cols).fill(0).map(()=>Math.random()*H()/14);
-      this.state.matrix={drops,cols,chars:'password 123456 qwerty dragon baseball football letmein monkey abc123 mustang shadow master jordan superman hunter trustno1 ranger batman test killer hockey charlie access hello freedom computer thunder summer 123456789 starwars silver chicago yankees arsenal liverpool security admin password1 iloveyou sunshine princess football1 welcome matrix zeppelin'.split(' ')};
+      const drops=Array(cols).fill(0).map((_,i)=>({y:Math.random()*H(),word:words[Math.floor(Math.random()*words.length)]}));
+      this.state.matrix={drops,words};
     }else if(id==='tron'){
       this.state.tron={t:0};
     }else if(id==='sakura'){
@@ -340,16 +341,27 @@ const CanvasFx={
 
     if(id==='matrix'){
       const st=this.state.matrix;
-      ctx.font='13px monospace';
-      for(let i=0;i<st.cols;i++){
-        const ch=st.chars[Math.floor(Math.random()*st.chars.length)];
-        const x=i*14, y=st.drops[i]*14;
+      // Fade trail
+      ctx.fillStyle='rgba(10,10,10,0.05)';
+      ctx.fillRect(0,0,W,H);
+      ctx.font='14px monospace';
+      for(let i=0;i<st.drops.length;i++){
+        const d=st.drops[i];
+        const word=st.words[Math.floor(Math.random()*st.words.length)];
+        const x=i*14;
+        const y=d.y;
+        // Bright white head
+        ctx.fillStyle='#ccffcc';
+        ctx.fillText(word[0],x,y);
+        // Green trail
         ctx.fillStyle='#00ff41';
-        ctx.fillText(ch,x,y);
-        ctx.fillStyle='rgba(0,255,65,0.3)';
-        ctx.fillText(ch,x,y-14);
-        if(y>H&&Math.random()>0.975)st.drops[i]=0;
-        st.drops[i]++;
+        ctx.fillText(word,x,y);
+        ctx.shadowColor='#00ff41';
+        ctx.shadowBlur=8;
+        ctx.fillText(word,x,y);
+        ctx.shadowBlur=0;
+        if(y>H&&Math.random()>0.975){d.y=0;d.word=st.words[Math.floor(Math.random()*st.words.length)]}
+        d.y+=14;
       }
     }else if(id==='tron'){
       const st=this.state.tron; st.t+=0.02;
