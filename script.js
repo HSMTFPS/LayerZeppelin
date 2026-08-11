@@ -341,26 +341,34 @@ const CanvasFx={
 
     if(id==='matrix'){
       const st=this.state.matrix;
-      // Fade trail
       ctx.fillStyle='rgba(10,10,10,0.05)';
       ctx.fillRect(0,0,W,H);
       ctx.font='14px monospace';
       for(let i=0;i<st.drops.length;i++){
         const d=st.drops[i];
-        const word=st.words[Math.floor(Math.random()*st.words.length)];
         const x=i*14;
-        const y=d.y;
-        // Bright white head
-        ctx.fillStyle='#ccffcc';
-        ctx.fillText(word[0],x,y);
-        // Green trail
-        ctx.fillStyle='#00ff41';
-        ctx.fillText(word,x,y);
-        ctx.shadowColor='#00ff41';
-        ctx.shadowBlur=8;
-        ctx.fillText(word,x,y);
+        // Draw each letter of the word stacked vertically
+        for(let j=0;j<d.word.length;j++){
+          const ch=d.word[j];
+          const y=d.y-j*14;
+          if(y<0||y>H)continue;
+          if(j===0){
+            // Bright white head
+            ctx.fillStyle='#ccffcc';
+            ctx.shadowColor='#00ff41';
+            ctx.shadowBlur=12;
+          }else{
+            ctx.fillStyle='#00ff41';
+            ctx.shadowColor='#00ff41';
+            ctx.shadowBlur=8;
+          }
+          ctx.fillText(ch,x,y);
+        }
         ctx.shadowBlur=0;
-        if(y>H&&Math.random()>0.975){d.y=0;d.word=st.words[Math.floor(Math.random()*st.words.length)]}
+        if(d.y-d.word.length*14>H&&Math.random()>0.975){
+          d.y=0;
+          d.word=st.words[Math.floor(Math.random()*st.words.length)];
+        }
         d.y+=14;
       }
     }else if(id==='tron'){
